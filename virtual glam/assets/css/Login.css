@@ -1,0 +1,89 @@
+.signup-section {
+    background-image: url('../images/authentication/Rectangle 139.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Ensures the background image scales properly */
+    background-position: center;
+
+    height: 100vh;
+    /* Makes the section fill the viewport height */
+    width: 100%;
+    /* Ensures the section adjusts to the viewport width */
+    position: relative;
+    opacity: 1;
+    /* Makes the section visible */
+}
+
+.signup-section .box {
+
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.box {
+    justify-content: center;
+    width: 418px;
+    height: 458px;
+    background-color: white;
+    border: 3px solid purple;
+    border-radius: 2rem !important;
+    display: flex;
+    align-items: center;
+}
+
+.login-here {
+    color: var(--primarycolor);
+}
+
+.input-complete {
+    height: 55px;
+}
+
+.main-content {
+    width: 318px;
+    height: 358px;
+
+}
+
+a.mt-3 {
+    display: inline-block;
+    margin-top: 20px;
+    /* Adjust the value as needed */
+    color: var(--primarycolor);
+}
+
+input::placeholder {
+    padding-left: 1rem;
+}
+
+.input-complete {
+    border: 2px solid purple;
+}
+
+/*media query for all screens */
+@media (max-width: 576px) {
+    .box {
+        width: 100% !important;
+        margin-top: 5rem ;
+    }
+    .signup-section{
+        background-image: url('../images/authentication/Rectangle 139.png');
+        background-repeat: no-repeat;
+        background-size: cover; /* Ensures the background image scales properly */
+        background-position: center;
+        height: 630px; 
+    }
+}
+@media (min-width:577px) and (max-width:768px) {
+    .box{
+        margin-top: 5rem;
+    }
+    .signup-section{
+        background-image: url('../images/authentication/Rectangle 139.png');
+        background-repeat: no-repeat;
+        background-size: cover; /* Ensures the background image scales properly */
+        background-position: center;
+        height: 630px;
+    }
+}
