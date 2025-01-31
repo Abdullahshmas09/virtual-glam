@@ -127,6 +127,7 @@
 @media (max-width: 1024px) {
   .logo {
     margin-left: 5px;
+    margin-top: 1.3rem;
   }
 }
 
@@ -263,13 +264,7 @@
 }
 
 /* Very Small Screens */
-/* @media (max-width: 320px) {
-  .social-media-icons {
-    position: absolute !important;
-    top: -83px !important;
-    left: -8px !important;
-  }
-} */
+
 
 /* Large Screens */
 /* @media (min-width: 1440px) {

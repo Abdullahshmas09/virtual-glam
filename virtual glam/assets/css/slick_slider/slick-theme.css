@@ -73,7 +73,7 @@
     line-height: 1;
 
     opacity: .75;
-    color: black;
+    color: purple;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -208,11 +208,11 @@
     .slick-prev {
         left: 5px !important;
         z-index: 999;
-        background-color: white !important;
+        background-color: transparent !important;
     }
     .slick-next {
         right: 5px !important;
         z-index: 999;
-        background-color: white !important;
+        background-color: transparent !important;
     }
 }

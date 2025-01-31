@@ -26,7 +26,7 @@
     /* Make it responsive */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-wrap: wrap;
     /* Ensure proper wrapping on smaller screens */
     gap: 10px;
@@ -97,11 +97,17 @@
     .color-picker {
       width: 50% !important;
     }
+    .color-images{
+      justify-content: start;
+      gap: 6px;
+    }
   }
-  
-  
-  
-  
+
+  @media (max-width:320px) {
+    .color-images{
+      gap: 5px;
+    }
+  }
   #imageModal {
     
     background-size: cover;

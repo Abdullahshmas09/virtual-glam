@@ -17,10 +17,6 @@
   
 }
 
-
-
-
-
 .lorem {
   width: 410px;
   color: white;
@@ -152,10 +148,23 @@ p {
 /* video section */
 .rounded-video{
   border-radius: 3rem;
+  border: 4px solid #61145a;
+  width: 400px !important;
+  height: 400px !important;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width:768px) {
+  .video{
+    width: 280px !important;
+    height: 280px !important;
+  }
+}
+
 @media (max-width:576px) {
   .video{
-    width: 100%;
+  width: 100% !important;
+  height: auto !important;
   }
 }
 
@@ -285,11 +294,6 @@ p {
   }
 }
 
-@media (min-width: 430px) and (max-width: 768px) {
-  .vglam {
-    margin-top: 2rem;
-  }
-}
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .img {
@@ -387,5 +391,8 @@ p {
   .pic {
     width: 100%;
     /* Ensure the image scales properly */
+  }
+  .vglam{
+    margin-top: 4rem;
   }
 }
