@@ -1,3 +1,4 @@
+
 .topBorder,
 .bottomBorder {
   margin-top: 5px;
@@ -170,7 +171,15 @@
 
 @media (max-width: 600px) {
   .logo {
-    top: -55px;
+    top: -45px !important;
+  }
+  .social-media-icons{
+    gap: .75rem;
+  }
+}
+@media (min-width:601px) {
+  .social-media-icons{
+    gap: 1rem;
   }
 }
 
@@ -210,7 +219,7 @@
   .icon-btn {
     width: 30px;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 }
 

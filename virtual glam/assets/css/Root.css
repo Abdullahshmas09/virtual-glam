@@ -71,11 +71,12 @@ col-xxl- (Extra extra large, ≥1400px) */
                          p {
                              font-size: var(--medium);
                          }
-
                          li {
                              font-size: var(--medium);
                          }
-
+                         .merge-top {
+                             margin-top: 200px !important;
+                         }
                          /* for every button */
                          button {
                              background-color: var(--btncolor);

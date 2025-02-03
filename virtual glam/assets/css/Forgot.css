@@ -68,7 +68,7 @@ input::placeholder {
 @media (max-width: 576px) {
     .box {
         width: 100% !important;
-        margin-top: 5rem;
+        margin-top: -6rem;
     }
     .signup-section{
         background-image: url('../images/authentication/Rectangle 139.png');
@@ -80,7 +80,7 @@ input::placeholder {
 }
 @media (min-width:577px) and (max-width:768px) {
     .box{
-        margin-top: 5rem;
+        margin-top: -6rem;
     }
     .signup-section{
         background-image: url('../images/authentication/Rectangle 139.png');

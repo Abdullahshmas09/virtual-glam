@@ -1,13 +1,14 @@
 .signup-section {
     background-image: url('../images/authentication/Rectangle 139.png');
     background-repeat: no-repeat;
-    background-size: cover; /* Ensures the background image scales properly */
+    background-size: cover;
+    /* Ensures the background image scales properly */
     background-position: center;
 
-    /* height: 100vh; Makes the section fill the viewport height */
-    width: 100%; /* Ensures the section adjusts to the viewport width */
+    width: 100%;
     position: relative;
-    opacity: 1; /* Makes the section visible */
+    opacity: 1;
+    /* Makes the section visible */
 }
 
 .signup-section .box {
@@ -24,6 +25,7 @@
     border-radius: 2rem !important;
     display: flex;
     align-items: center;
+    margin-top: 5rem;
 }
 
 .main-content {
@@ -65,25 +67,36 @@ input::placeholder {
 @media (max-width: 576px) {
     .box {
         width: 100% !important;
-        margin-top: 5rem;
+        margin-top: 6rem;
     }
-    .signup-section{
+
+    .signup-section {
         background-image: url('../images/authentication/Rectangle 139.png');
         background-repeat: no-repeat;
-        background-size: cover; /* Ensures the background image scales properly */
+        background-size: cover;
+        /* Ensures the background image scales properly */
         background-position: center;
-        height: 630px; 
+
     }
 }
+
 @media (min-width:577px) and (max-width:768px) {
-    .box{
-        margin-top: 5rem;
+    .box {
+        margin-top: 7rem;
     }
-    .signup-section{
+
+    .signup-section {
         background-image: url('../images/authentication/Rectangle 139.png');
         background-repeat: no-repeat;
-        background-size: cover; /* Ensures the background image scales properly */
+        background-size: cover;
+        /* Ensures the background image scales properly */
         background-position: center;
-        height: 630px;
+
+    }
+}
+
+@media (min-width:1024px) and (max-width:1440px) {
+    .box {
+        margin-top: 10rem;
     }
 }
