@@ -2,7 +2,7 @@ $(document).ready(function () {
     // Handle form submission
     $("#myform").submit(function (e) { // Use "myform" here to match the HTML ID
         e.preventDefault();
-
+        window.location.href = "/pending-email.html"
         // Capture form data
         const name = $("#name").val();
         const email = $("#email").val();

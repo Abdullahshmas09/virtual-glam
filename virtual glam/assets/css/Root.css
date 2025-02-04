@@ -15,6 +15,7 @@ col-xxl- (Extra extra large, ≥1400px) */
                              /* Font sizes for Poppins */
                              --extrasmall: 12px;
                              --small: 14px;
+                             --concealer-image: 18px;
                              --medium: 16px;
                              --medium-plus: 20px;
                              --large: 24px;
@@ -71,12 +72,20 @@ col-xxl- (Extra extra large, ≥1400px) */
                          p {
                              font-size: var(--medium);
                          }
+
                          li {
                              font-size: var(--medium);
                          }
+
                          .merge-top {
                              margin-top: 200px !important;
                          }
+
+                         h4 {
+                             font-size: var(--concealer-image);
+                         }
+
+
                          /* for every button */
                          button {
                              background-color: var(--btncolor);

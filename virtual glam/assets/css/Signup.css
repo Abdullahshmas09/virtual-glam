@@ -10,13 +10,9 @@
     opacity: 1;
     /* Makes the section visible */
 }
-
-.signup-section .box {
+.box {
     padding: 20px;
     border-radius: 10px;
-}
-
-.box {
     justify-content: center;
     width: 408px;
     height: 626px;
@@ -25,7 +21,7 @@
     border-radius: 2rem !important;
     display: flex;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 7rem;
 }
 
 .main-content {
@@ -91,7 +87,6 @@ input::placeholder {
         background-size: cover;
         /* Ensures the background image scales properly */
         background-position: center;
-
     }
 }
 

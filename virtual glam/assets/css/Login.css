@@ -28,7 +28,9 @@
     border-radius: 2rem !important;
     display: flex;
     align-items: center;
+    margin-top: 7rem;
 }
+
 
 .login-here {
     color: var(--primarycolor);
@@ -63,6 +65,7 @@ input::placeholder {
 @media (max-width: 576px) {
     .box {
         width: 100% !important;
+        height: 440px;
     }
     .signup-section{
         background-image: url('../images/authentication/Rectangle 139.png');
@@ -88,3 +91,5 @@ input::placeholder {
         margin-top: 8rem;
     }
 }
+
+

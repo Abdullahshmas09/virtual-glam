@@ -1,12 +1,12 @@
-.signup-section {
+.forget-section {
     background-image: url('../images/authentication/Rectangle 139.png');
     background-repeat: no-repeat;
     background-size: cover;
     /* Ensures the background image scales properly */
     background-position: center;
 
-    height: 100vh;
-    /* Makes the section fill the viewport height */
+
+    
     width: 100%;
     /* Ensures the section adjusts to the viewport width */
     position: relative;
@@ -14,10 +14,11 @@
     /* Makes the section visible */
 }
 
-.signup-section .box {
+ .box {
 
     padding: 20px;
     border-radius: 10px;
+    margin-top: 7rem;
 }
 
 
@@ -68,25 +69,6 @@ input::placeholder {
 @media (max-width: 576px) {
     .box {
         width: 100% !important;
-        margin-top: -6rem;
-    }
-    .signup-section{
-        background-image: url('../images/authentication/Rectangle 139.png');
-        background-repeat: no-repeat;
-        background-size: cover; /* Ensures the background image scales properly */
-        background-position: center;
-        height: 630px; 
     }
 }
-@media (min-width:577px) and (max-width:768px) {
-    .box{
-        margin-top: -6rem;
-    }
-    .signup-section{
-        background-image: url('../images/authentication/Rectangle 139.png');
-        background-repeat: no-repeat;
-        background-size: cover; /* Ensures the background image scales properly */
-        background-position: center;
-        height: 630px;
-    }
-}
+
