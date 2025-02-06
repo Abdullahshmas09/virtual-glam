@@ -55,11 +55,11 @@ jQuery(document).ready(function ($) {
     dots: false,
     arrows: true,
     infinite: true,
-    speed: 1000,
+    speed: 3000,
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 10000,
     responsive: [
       {
         breakpoint: 600,
@@ -79,79 +79,63 @@ jQuery(document).ready(function ($) {
     ],
   });
 });
-
 //  show the lip liner section
+//  slider id 
+// lips-color , lips-liner ,eye-colors  , contours, eye-shadows ,eye-liners , bronzers ,concealers ,blushes , foundations
+// $("#lips-color , #eye-colors ,#lips-liner , #contours,#eye-shadow , #eye-liners , #bronzers , #blushes , #foundation , #eye-lashes ,#concealers").css("border", "none");
+// $("#lip-color ,#lip-liner, #eye-color , #contour , #eye-shadow , #eye-liner , #eye-lash , #bronzer ,#concealer , #blush , #foundation ").hide();
+
 $(document).ready(function () {
-  //  for 
-  $("#lips-liner").click(function () {
-    $(this).css({
-      "border": "3px solid purple",
-      "border-radius": "10rem"
-    });
-    $("#lips-color , #lips-plumper ,#eye-brows,#eye-shadow ").css("border", "none"); // Remove border from lips-color
-    $(".lip-color ,#lip-plumper , #eye-brow, #eye-shadow , #eye-lash").hide(); // Hide Lip Color Section
-    $("#lip-liner").show(); // Show Lip Liner Section
+  function applyStyles(activeId, sectionToShow) {
+    $("#lips-color, #eye-colors, #lips-liner, #contours, #eye-shadows, #eye-liners, #bronzers, #blushes, #foundation, #eye-lashes, #concealers")
+      .css("border", "none");
+
+    $("#lip-color, #lip-liner, #eye-color, #contour, #eye-shadow, #eye-liner, #eye-lash, #bronzer, #concealer, #blush, #foundation")
+      .hide();
+
+    $(sectionToShow).show();
+    $(activeId).css({ "border": "5px solid purple", "border-radius": "10rem" });
+  }
+
+  $("#lips-liner, #lips-color, #eye-colors, #contours, #eye-shadows, #eye-liners, #eye-lashes, #bronzers, #concealers, #blushes, #foundation").click(function () {
+    let idMap = {
+      "lips-liner": "#lip-liner",
+      "lips-color": "#lip-color",
+      "eye-colors": "#eye-color",
+      "contours": "#contour",
+      "eye-shadows": "#eye-shadow",
+      "eye-liners": "#eye-liner",
+      "eye-lashes": "#eye-lash",
+      "bronzers": "#bronzer",
+      "concealers": "#concealer",
+      "blushes": "#blush",
+      "foundation": "#foundation"
+    };
+
+    applyStyles("#" + this.id, idMap[this.id]);
   });
-  //  for lips color
-  $("#lips-color").click(function () {
-    $(this).css({
-      "border": "3px solid purple",
-      "border-radius": "10rem"
-    });
-    $("#lips-liner , #lips-plumper , #eye-brows ,#eye-shadows ,#eye-lashes").css("border", "none"); // Remove border from lips-liner
-    $("#lip-color").show(); // Show Lip Color Section
-    $("#lip-liner , #lip-plumper ,#eye-brow , #eye-shadow , #eye-lash").hide(); // Hide Lip Liner Section
-  });
-  //   for lips plumper
-  $("#lips-plumper").click(function () {
-    $(this).css({
-      "border": "3px solid purple",
-      "border-radius": "10rem"
-    });
-    $("#lips-liner ,#lips-color , #eye-brows , #eye-shadows , #eye-liners ,#eye-lashes").css("border", "none"); // Remove border from lips-liner
-    $("#lip-color , #lip-liner ,#eye-brow , #eye-shadow , #eye-liner , #eye-lash").hide(); // Show Lip Color Section
-    $("#lip-plumper").show();
-  });
-  // for eye brow 
-  $("#eye-brows").click(function () {
-    $(this).css({
-      "border": "3px solid purple",
-      "border-radius": "10rem"
-    });
-    $("#lips-liner ,#lips-color , #lips-plumper , #eye-shadows, #eye-liners ,#eye-lashes").css("border", "none"); // Remove border from lips-liner
-    $("#lip-color , #lip-liner ,#lip-plumper, #eye-shadow , #eye-liner , #eye-lash").hide(); // Show Lip Color Section
-    $("#eye-brow").show();
-  });
-  //  for eye shadow
-  $("#eye-shadows").click(function () {
-    $(this).css({
-      "border": "3px solid purple",
-      "border-radius": "10rem"
-    });
-    $("#lips-liner ,#lips-color , #lips-plumper , #eye-brows, #eye-liners ,#eye-lashes").css("border", "none"); // Remove border from lips-liner
-    $("#lip-color , #lip-liner ,#lip-plumper , #eye-brow , #eye-liner , #eye-lash").hide(); // Show Lip Color Section
-    $("#eye-shadow").show();
-  });
-  // for eye liners 
-  $("#eye-liners").click(function () {
-    $(this).css({
-      "border": "3px solid purple",
-      "border-radius": "10rem"
-    });
-    $("#lips-liner ,#lips-color , #lips-plumper , #eye-brows, #eye-shadows , #eye-lashes").css("border", "none"); // Remove border from lips-liner
-    $("#lip-color , #lip-liner ,#lip-plumper , #eye-brow , #eye-shadow , #eye-lash").hide(); // Show Lip Color Section
-    $("#eye-liner").show();
-  });
-  //  for eye lashes 
-  $("#eye-lashes").click(function () {
-    $(this).css({
-      "border": "3px solid purple",
-      "border-radius": "10rem"
-    });
-    $("#lips-liner ,#lips-color , #lips-plumper , #eye-brows, #eye-shadows , #eye-liners").css("border", "none"); // Remove border from lips-liner
-    $("#lip-color , #lip-liner ,#lip-plumper , #eye-brow , #eye-shadow , #eye-liner").hide(); // Show Lip Color Section
-    $("#eye-lash").show();
+
+  $('.bannerSlider1').on('afterChange', function (event, slick, currentSlide) {
+    let activeSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + currentSlide + '"] img');
+    let sectionId = activeSlide.attr('id');
+
+    if (!sectionId) return;
+
+    let idMap = {
+      "lips-liner": "#lip-liner",
+      "eye-colors": "#eye-color",
+      "lips-color": "#lip-color",
+      "contours": "#contour",
+      "eye-shadows": "#eye-shadow",
+      "eye-liners": "#eye-liner",
+      "eye-lashes": "#eye-lash",
+      "bronzers": "#bronzer",
+      "concealers": "#concealer",
+      "blushes": "#blush",
+      "foundations": "#foundation"
+    };
+
+    applyStyles("#" + sectionId, idMap[sectionId]);
   });
 });
-
 
