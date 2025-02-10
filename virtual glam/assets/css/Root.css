@@ -19,7 +19,7 @@ col-xxl- (Extra extra large, ≥1400px) */
                              --medium: 16px;
                              --medium-plus: 20px;
                              --large: 24px;
-                             --authentication-heading: 24px;
+                             --authentication-heading: 40px;
                              --extralarge: 48px;
 
                              /* Font sizes for Ramolina Script */
@@ -32,6 +32,9 @@ col-xxl- (Extra extra large, ≥1400px) */
                              --markupheight: 150px;
                              --modal-width: 150px;
                              --modal-height: 150px;
+                             /* authentication button width */
+                             --auth-button-width:308px;
+                             --auth-button-height:54px;
                          }
 
                          @font-face {
@@ -126,13 +129,22 @@ col-xxl- (Extra extra large, ≥1400px) */
 
                          .authenticate {
                              font-size: var(--authentication-heading);
-                             color: black;
+                         
                          }
 
                          .foundation {
                              font-family: 'RamolinaScript', 'Poppins', cursive;
                              font-size: var(--ramolina-medium);
                              color: var(--primarycolor);
+                         }
+                         .auth-button{
+                            width: var(--auth-button-width);
+                            height: var(--auth-button-height);
+                             background: linear-gradient(149.67deg, #9E98ED -1.49%, #C3AAE2 49.26%, #EEBFD5 100%);
+                         }
+                         .auth-input{
+                            width: 370px;
+                            height: 45px;
                          }
 
 

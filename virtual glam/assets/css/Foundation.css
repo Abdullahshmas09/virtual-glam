@@ -1,3 +1,8 @@
+
+.download-add-minus{
+  height: 380px;
+}
+
 .choose-try-on {
   background: linear-gradient(149.67deg, #9E98ED -1.49%, #C3AAE2 49.26%, #EEBFD5 100%);
   box-shadow: 0px 4px 8px 3px #00000080;
@@ -268,25 +273,10 @@
 }
 
 @media (min-width:1024px) {
-  .download-add-minus {
-    height: 40vh !important;
-  }
+ 
 
   .img {
     width: 360px !important;
-  }
-}
-
-@media (width:1440px) {
-  .download-add-minus {
-    height: 40vh !important;
-  }
-}
-
-@media (min-width:1920px) {
-  .download-add-minus {
-
-    height: 380px !important;
   }
 }
 /* slider */
@@ -297,9 +287,6 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-
-
 #my-img{
     clip-path: polygon(0 0 , 50% 0, 50% 100%, 0 100%);
 }

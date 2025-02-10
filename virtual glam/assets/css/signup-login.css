@@ -1,0 +1,35 @@
+.login-section {
+    background: linear-gradient(149.67deg, #9E98ED -1.49%, #C3AAE2 49.26%, #EEBFD5 100%);
+
+}
+
+.auth-input {
+    border: 1px solid purple;
+}
+
+.signup-section,
+.login-form-section {
+    display: none !important;
+}
+
+
+.forgot-password {
+    text-decoration: none;
+    color: var(--primarycolor);
+}
+
+@media (max-width:768px) {
+    .authenticate {
+        font-size: 36px !important;
+    }
+
+    .auth-input {
+        width: 250px !important;
+    }
+}
+
+@media (max-width:576px) {
+    .login-section {
+        height: 330px;
+    }
+}
