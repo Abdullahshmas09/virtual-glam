@@ -1,117 +1,174 @@
-jQuery(document).ready(function ($) {
-    $('#color-images').slick({
-        dots: false,
-        arrows: true,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplaySpeed: 1000,
-        centerMode: true,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 768, // Tablets
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    arrows: true, // Arrows remain for tablets
-                },
-            },
-            {
-                breakpoint: 576, // Small screens
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    arrows: true, // Disable arrows for smaller screens
-                    
-                },
-            },
-            {
-                breakpoint: true, // Very small screens
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                },
-            },
-        ],
-    });
-});
-$(document).ready(function () {
-    $('#choose-modal').click(function () {
-        $('#content1').hide();
-        $('#content2').show();
-    });
-    $('#cross').click(function () {
-        $('#content2').hide();
-        $('#content1').show();
-    });
-});
-$(document).ready(function () {
-    let zoomLevel = 1; // Initial zoom level
-    // Zoom in (progressively increase the size)
-    $('#plus-btn').click(function () {
-        zoomLevel += 0.1; // Increase zoom level
-        $('#pic').css('transform', `scale(${zoomLevel})`);
-        $('#pic').css('max-width', '100%'); // Ensure the image stays within the parent width
-        $('#pic').css('max-height', '100%'); // Ensure the image stays within the parent height
-    });
-    // Zoom out (progressively decrease the size)
-    $('#minus-btn').click(function () {
-        if (zoomLevel > 0.5) { // Don't zoom out beyond 50% of original size
-            zoomLevel -= 0.1; // Decrease zoom level
-            $('#pic').css('transform', `scale(${zoomLevel})`);
-            $('#pic').css('max-width', '100%'); // Ensure the image stays within the parent width
-            $('#pic').css('max-height', '100%'); // Ensure the image stays within the parent height
-        }
-    });
-});
-// When you click the solid image
-$("#solid1").click(function () {
-    console.log('Clicked on #solid1');
-    $("#pic").hide();
-    $("#download-btn").hide()
-    $("#plus-btn").hide()
-    $("#first-slider").hide()
-    $("#minus-btn").hide()
-    $("#door").show()
-    $("#door").css("z-index", "999");
-    $("#cross").css("margin-top", "2rem");
-    $("#undo").css("margin-top", "2rem");
-    $("#slider-contaner").fadeIn();
-});
+// Load header and footer dynamically
+fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+  })
+  .catch(error => console.error('Error loading header:', error));
 
-
-$("#door").click(function (e) {
-    e.preventDefault();
-    $("#pic").show()
-    $("#download-btn").show()
-    $("#plus-btn").show()
-    $("#first-slider").show()
-    $("#minus-btn").show()
-    $("#cross").css("margin-top", "0");
-    $("#undo").css("margin-top", "0");
-    $(this).hide()
-});
-
-
-
-//   slider,s javascript
-function slide() {
-    let slideValue = document.getElementById("slider").value;
-
-    // Adjust opacity based on the slider value
-    if (slideValue <= 50) {
-        // Show first image, hide second image
-        document.getElementById("image1").style.opacity = 1;
-        document.getElementById("image2").style.opacity = 0;
+fetch('Footer.html')
+  .then(response => response.text())
+  .then(data => {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      footer.innerHTML = data;
     } else {
-        // Show second image, hide first image
-        document.getElementById("image1").style.opacity = 0;
-        document.getElementById("image2").style.opacity = 1;
+      console.error('Footer element not found');
     }
+  })
+  .catch(error => console.error('Error loading footer:', error));
+
+// Slick slider setup for banner sliders
+jQuery(document).ready(function ($) {
+  $('.bannerSlider, .bannerSlider1').each(function () {
+    $(this).slick({
+      dots: false,
+      arrows: true,
+      infinite: true,
+      speed: $(this).hasClass('bannerSlider') ? 1000 : 3000,
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: $(this).hasClass('bannerSlider') ? 1000 : 10000,
+      responsive: [
+        {
+          breakpoint: 600,
+          settings: { slidesToShow: 2, slidesToScroll: 1, arrows: false },
+        },
+        {
+          breakpoint: 400,
+          settings: { slidesToShow: 2, slidesToScroll: 1, arrows: $(this).hasClass('bannerSlider1') },
+        },
+      ],
+    });
+  });
+  // Apply styles and display sections dynamically
+  function applyStyles(activeId, sectionToShow) {
+    $("#lips-color, #eye-colors, #lips-liner, #contours, #eye-shadows, #eye-liners, #bronzers, #blushes, #foundation, #eye-lashes, #concealers")
+      .css("border", "none");
+
+    $("#lip-color, #lip-liner, #eye-color, #contour, #eye-shadow, #eye-liner, #eye-lash, #bronzer, #concealer, #blush, #foundation")
+      .hide();
+
+    $(sectionToShow).show();
+    $(activeId).css({ "border": "5px solid purple", "border-radius": "10rem" });
+  }
+
+  $("#lips-liner, #lips-color, #eye-colors, #contours, #eye-shadows, #eye-liners, #eye-lashes, #bronzers, #concealers, #blushes, #foundation").click(function () {
+    const idMap = {
+      "lips-liner": "#lip-liner",
+      "lips-color": "#lip-color",
+      "eye-colors": "#eye-color",
+      "contours": "#contour",
+      "eye-shadows": "#eye-shadow",
+      "eye-liners": "#eye-liner",
+      "eye-lashes": "#eye-lash",
+      "bronzers": "#bronzer",
+      "concealers": "#concealer",
+      "blushes": "#blush",
+      "foundation": "#foundation",
+    };
+
+    applyStyles("#" + this.id, idMap[this.id]);
+  });
+
+  $('.bannerSlider1').on('afterChange', function (event, slick, currentSlide) {
+    let activeSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + currentSlide + '"] img');
+    let sectionId = activeSlide.attr('id');
+
+    if (!sectionId) return;
+
+    const idMap = {
+      "lips-liner": "#lip-liner",
+      "eye-colors": "#eye-color",
+      "lips-color": "#lip-color",
+      "contours": "#contour",
+      "eye-shadows": "#eye-shadow",
+      "eye-liners": "#eye-liner",
+      "eye-lashes": "#eye-lash",
+      "bronzers": "#bronzer",
+      "concealers": "#concealer",
+      "blushes": "#blush",
+      "foundations": "#foundation",
+    };
+
+    applyStyles("#" + sectionId, idMap[sectionId]);
+  });
+  // Slick slider setup for color images
+  $('#color-images').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplaySpeed: 1000,
+    centerMode: true,
+    variableWidth: true,
+    responsive: [
+      { breakpoint: 768, settings: { slidesToShow: 3, slidesToScroll: 1, arrows: true } },
+      { breakpoint: 576, settings: { slidesToShow: 2, slidesToScroll: 1, arrows: true } },
+      { breakpoint: 400, settings: { slidesToShow: 1, slidesToScroll: 1, arrows: false } },
+    ],
+  });
+  // Toggle modal content
+  $('#choose-modal').click(function () {
+    $('#content1').hide();
+    $('#content2').show();
+  });
+
+  $('#cross').click(function () {
+    $('#content2').hide();
+    $('#content1').show();
+  });
+  // Zoom functionality
+  let zoomLevel = 1;
+
+  $('#plus-btn').click(function () {
+    zoomLevel += 0.1;
+    $('#pic').css({ 'transform': `scale(${zoomLevel})`, 'max-width': '100%', 'max-height': '100%' });
+  });
+
+  $('#minus-btn').click(function () {
+    if (zoomLevel > 0.5) {
+      zoomLevel -= 0.1;
+      $('#pic').css({ 'transform': `scale(${zoomLevel})`, 'max-width': '100%', 'max-height': '100%' });
+    }
+  });
+
+  // Toggle elements on click
+  $("#solid1").click(function () {
+
+    $("#pic, #download-btn, #plus-btn, #first-slider, #minus-btn").hide();
+    $("#door").show().css("z-index", "999");
+    $("#cross, #undo").css("margin-top", "2rem");
+    $("#slider-contaner").fadeIn();
+  });
+
+  $("#door").click(function (e) {
+    e.preventDefault();
+    $("#pic, #download-btn, #plus-btn, #first-slider, #minus-btn").show();
+    $("#cross, #undo").css("margin-top", "0");
+    $(this).hide();
+  });
+
+});
+// Adjust opacity based on slider value
+function slide() {
+  let slideValue = document.getElementById("slider").value;
+
+  if (slideValue <= 50) {
+    $("#image1").css("opacity", "1");
+    $("#image2").css("opacity", "0");
+  } else {
+    $("#image1").css("opacity", "0");
+    $("#image2").css("opacity", "1");
+  }
 }
+
+
+
+
 
 
 
