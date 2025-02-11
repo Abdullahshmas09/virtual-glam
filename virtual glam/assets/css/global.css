@@ -1,0 +1,628 @@
+/* root portion  */
+/*  root portion  */
+:root {
+    --primarycolor: #61145a;
+    --btncolor: #c6bed3;
+    /* Font sizes for Poppins */
+    --extrasmall: 12px;
+    --small: 14px;
+    --concealer-image: 18px;
+    --medium: 16px;
+    --medium-plus: 20px;
+    --large: 24px;
+    --authentication-heading: 40px;
+    --extralarge: 48px;
+
+    /* Font sizes for Ramolina Script */
+    --ramolina-medium: 40px;
+    --ramolina-large: 96px;
+    --ramolina-xlarge: 128px;
+    /* width */
+    --try-virtualwidth: 1200px;
+    --markupwidth: 150px;
+    --markupheight: 150px;
+    --modal-width: 150px;
+    --modal-height: 150px;
+    /* authentication button width */
+    --auth-button-width: 308px;
+    --auth-button-height: 54px;
+}
+
+@font-face {
+    font-family: 'RamolinaScript';
+    src: url('../../assets/images/fonts/Ramolina Script.ttf') format('truetype');
+    font-display: swap;
+
+}
+
+
+/* Ensure Poppins font is loaded via CDN */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* General styles */
+body {
+    font-family: 'Poppins', Arial, sans-serif !important;
+}
+
+h3 {
+    font-size: var(--large);
+}
+
+h5 {
+    font-family: 'RamolinaScript', cursive;
+    font-size: var(--ramolina-xlarge);
+    /* Apply the font size from root variable */
+}
+
+h6 {
+    font-size: var(--extralarge) !important;
+}
+
+h2 {
+    font-size: var(--medium-plus) !important;
+}
+
+p {
+    font-size: var(--medium);
+}
+
+li {
+    font-size: var(--medium);
+}
+
+.merge-top {
+    margin-top: 200px !important;
+}
+
+h4 {
+    font-size: var(--concealer-image);
+}
+
+
+/* for every button */
+button {
+    background-color: var(--btncolor);
+    color: var(--primarycolor);
+    border: 2px solid white;
+    /* White stroke */
+    border-radius: 5px;
+    /* Optional: Rounded corners */
+    padding: 10px 20px;
+    font-size: var(--medium);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Shadow */
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+/* button:hover {
+   background-color: var(--primarycolor);
+   color: #fff;
+} */
+
+/* Virtual Glam class */
+.vglam {
+    font-family: 'RamolinaScript', cursive;
+    font-size: var(--ramolina-large) !important;
+    /* Force the font size */
+}
+
+.try-virtual-glam {
+    width: var(--try-virtualwidth);
+    height: 150px;
+}
+
+.remolina {
+    font-family: 'RamolinaScript', 'Poppins', cursive;
+}
+
+.authenticate {
+    font-size: var(--authentication-heading);
+
+}
+
+.foundation {
+    font-family: 'RamolinaScript', 'Poppins', cursive;
+    font-size: var(--ramolina-medium);
+    color: var(--primarycolor);
+}
+
+.auth-button {
+    width: var(--auth-button-width);
+    height: var(--auth-button-height);
+    background: linear-gradient(149.67deg, #9E98ED -1.49%, #C3AAE2 49.26%, #EEBFD5 100%);
+}
+
+.auth-input {
+    width: 370px;
+    height: 45px;
+}
+
+
+
+/*  for screen width is greater than 1024px */
+@media (min-width:1024px) {
+    .remolina1 {
+        font-family: 'RamolinaScript', 'Poppins', cursive;
+        font-size: var(--ramolina-large);
+        color: var(--primarycolor);
+    }
+}
+
+.remolina1 {
+    font-family: 'RamolinaScript', 'Poppins', cursive;
+    color: var(--primarycolor);
+}
+
+/*  for screen width is greater than 1024px */
+@media (min-width:1024px) {
+    .remolina {
+        font-family: 'RamolinaScript', 'Poppins', cursive;
+        font-size: 48px;
+    }
+}
+
+.virtual-glam {
+    padding-top: 2rem;
+}
+
+/* Media query for responsiveness */
+@media only screen and (max-width: 768px) {
+    .vglam {
+        font-size: var(--ramolina-medium) !important;
+    }
+
+    h5 {
+        font-size: var(--ramolina-medium);
+    }
+
+    button {
+        font-size: var(--small);
+        padding: 8px 16px;
+    }
+}
+
+/* header css */
+
+.topBorder,
+.bottomBorder {
+    margin-top: 5px;
+    width: 100%;
+    height: 2px;
+    background-color: #611459;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    z-index: 1;
+}
+
+/* Navigation */
+.navRight {
+    padding-left: 400px;
+}
+
+.navBtn {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.navBtn:hover {
+    color: var(--primarycolor);
+}
+
+/* Icons */
+.icon-btn {
+    width: 35px;
+    height: 35px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #D4C3EA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn img {
+    max-width: 15px;
+}
+
+/* Social Media Icons */
+/* .social-media-icons {
+  position: absolute;
+  left: 1130px;
+  bottom: 75px;
+} */
+
+/* Navbar Toggler */
+.navbar-toggler {
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    z-index: 1050;
+}
+
+@media (max-width: 320px) {
+    .navbar-toggler {
+        right: 10px;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1400px) {
+    .navLeft {
+        width: 350px;
+        padding-left: 15px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .navLeft {
+        margin-left: -50px;
+    }
+
+    .navRight {
+        margin-left: -1.5rem;
+        padding-left: 300px;
+    }
+
+    .logo {
+        max-width: 270px;
+        margin-left: -35px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .navRight {
+        margin-left: 0.5rem;
+        margin-right: auto;
+    }
+
+    .icons {
+        margin-left: -0.75rem !important;
+    }
+
+    .logo {
+        width: 200px;
+    }
+}
+
+@media (width: 1024px) {
+    .logo {
+        width: 230px;
+    }
+}
+
+
+
+@media (min-width: 600px) and (max-width: 768px) {
+    .logo {
+        margin-left: 8px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .logo {
+        margin-left: 5px;
+        margin-top: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .item1,
+    .item2 {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    /* .social-media-icons {
+    margin-top: 1.7rem;
+  } */
+}
+
+@media (max-width: 768px) {
+
+    .item1,
+    .item2 {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        text-align: center;
+    }
+
+    .navbar-toggler-icon {
+        width: 20px !important;
+        height: 20px !important;
+    }
+}
+
+/* Adjust Logo Positioning */
+@media (max-width: 590px) {
+    .logo {
+        top: -10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        top: -45px !important;
+    }
+
+    .social-media-icons {
+        gap: .75rem;
+    }
+}
+
+@media (min-width:601px) {
+    .social-media-icons {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .logo {
+        top: -20px;
+    }
+}
+
+/* Mobile & Tablet Navigation */
+@media (max-width: 992px) {
+
+    .navLeft,
+    .navRight {
+        flex-direction: column;
+        gap: 0px !important;
+        padding-left: 0px;
+        align-items: flex-start !important;
+    }
+
+    .navContainer {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .navLeft {
+        padding-top: 20px;
+    }
+
+    .navBtn {
+        font-size: 14px;
+        text-align: left;
+        margin: 10px 0px;
+        border-bottom: 2px solid grey;
+    }
+
+    .icon-btn {
+        width: 30px;
+        height: 30px;
+        margin-top: 5px;
+    }
+}
+
+/* Small Screens */
+@media (max-width: 576px) {
+    /* .social-media-icons {
+    position: absolute !important;
+    left: 10px !important;
+    top: -80px !important;
+  } */
+
+    .navRight a {
+        margin-left: -4rem !important;
+    }
+
+    .icon-btn {
+        width: 22px;
+        height: 22px;
+    }
+
+    .item1,
+    .item2 {
+        margin-top: 1rem;
+    }
+}
+
+/* Tablet Screens */
+@media (max-width: 768px) {
+    /* .social-media-icons {
+    position: absolute;
+    top: -60px;
+    left: 5px;
+  } */
+
+    .navRight a {
+        margin-left: -3.5rem;
+    }
+
+    .navLeft a {
+        margin-left: 3rem;
+    }
+}
+
+@media (min-width:1024px) {
+    .social-media-icons {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        padding-top: 1rem;
+    }
+}
+
+/* footer css */
+/* try-virtual-glam  ??? upper section of footer */
+.virtual-container {
+    background-color: var(--primarycolor);
+    z-index: 2;
+    margin-bottom: -50px;
+    position: relative;
+}
+
+.content-try-glam {
+    padding: 30px 50px;
+}
+
+@media (width:768px) {
+
+
+    .try-virtual-glam {
+        padding: 15px !important;
+    }
+}
+
+/*  media queries for small screen  */
+@media (max-width:768px) {
+    .content-try-glam {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width:576px) {
+    .content-try-glam {
+        padding: 30px 30px;
+    }
+
+    .try-virtual-heading {
+        font-size: 36px !important
+    }
+}
+
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .try-virtual-glam {
+        /* Tablet-specific styles */
+        width: 100% !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .combine {
+
+        text-align: left;
+    }
+
+    .buttonr {
+        width: auto;
+        margin-top: 0;
+    }
+
+
+}
+
+
+.virtual-footer {
+    background-color: #c6bed3;
+    z-index: 1;
+}
+
+.logo-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foot {
+    width: 150px;
+    height: 150px;
+
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+    .foot {
+        width: 150px;
+    }
+
+    .try-virtual {
+        width: 95%;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+    .money {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .foot {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .responsive {
+        text-align: center;
+    }
+
+
+    .center-content {
+        text-align: center;
+    }
+
+    .center-content ul {
+        padding-left: 0;
+    }
+
+    .center-content li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .center-content img {
+        margin-right: 10px;
+    }
+
+    .blog {
+        text-align: center;
+    }
+
+    .blog-list {
+        text-align: center;
+    }
+
+    .navigation-list {
+        text-align: center;
+    }
+}
+
+@media (width:768px) {
+    .try-glam {
+        margin-top: -1rem;
+        text-align: center;
+    }
+
+    .buttonr {
+        margin-top: -.4rem;
+    }
+
+    .try-virtual-glam {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+}

@@ -358,10 +358,6 @@ p {
   }
 }
 
-
-
-
-
 @media (min-width: 1024px) and (max-width: 1440px) {
 
   /* Styles for laptop screens */
@@ -397,5 +393,69 @@ p {
   }
   .vglam{
     margin-top: 4rem;
+  }
+}
+/* signup-login css */
+.signup-login {
+  background-image: url(../images/authentication/auth-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Glassy Overlay Effect */
+.signup-login::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  /* Light transparent overlay */
+  backdrop-filter: blur(3px);
+  /* Blur effect */
+
+}
+
+.signup-login .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+.login-section {
+  background: linear-gradient(149.67deg, #9E98ED -1.49%, #C3AAE2 49.26%, #EEBFD5 100%);
+
+}
+
+.auth-input {
+  border: 1px solid purple;
+}
+
+.signup-section,
+.login-form-section {
+  display: none !important;
+}
+
+
+.forgot-password {
+  text-decoration: none;
+  color: var(--primarycolor);
+}
+
+@media (max-width:768px) {
+  .authenticate {
+      font-size: 36px !important;
+  }
+
+  .auth-input {
+      width: 250px !important;
+  }
+}
+
+@media (max-width:576px) {
+  .login-section {
+      height: 330px;
   }
 }
