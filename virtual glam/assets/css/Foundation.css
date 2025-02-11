@@ -1,5 +1,4 @@
-
-.download-add-minus{
+.download-add-minus {
   height: 380px;
 }
 
@@ -108,7 +107,7 @@
 
 
 #imageModal {
-  
+
   background-size: cover;
   /* Ensures the background image covers the entire modal */
   background-position: center;
@@ -161,10 +160,11 @@
 }
 
 /* dosri larki css */
-.content3{
+.content3 {
   position: relative;
 }
-.dosri-larki{
+
+.dosri-larki {
   position: absolute;
   bottom: 15px;
   width: 280px;
@@ -172,13 +172,13 @@
 }
 
 @media (max-width:576px) {
-  .dosri-larki{
+  .dosri-larki {
     width: 80%;
   }
 }
 
 @media (max-width:768px) {
-  .dosri-larki{
+  .dosri-larki {
     width: 280px;
   }
 }
@@ -191,7 +191,7 @@
   /* Set width for the slider */
   height: 40px;
   /* Height of the container */
-  
+
 }
 
 /* The slider itself */
@@ -215,7 +215,7 @@
   position: absolute;
   left: 50px;
   top: -40px;
- 
+
 }
 
 /* The thumb (draggable part) of the slider */
@@ -225,7 +225,7 @@
   height: 20px;
   border-radius: 50%;
   /* Make the thumb circular */
-  background: var( --primarycolor);
+  background: var(--primarycolor);
   /* Thumb color */
   cursor: pointer;
 }
@@ -235,7 +235,7 @@
   height: 20px;
   border-radius: 50%;
   /* Make the thumb circular */
-  background: var( --primarycolor);
+  background: var(--primarycolor);
   /* Thumb color */
   cursor: pointer;
 }
@@ -245,7 +245,7 @@
   height: 20px;
   border-radius: 50%;
   /* Make the thumb circular */
-  background: var( --primarycolor);
+  background: var(--primarycolor);
   /* Thumb color */
   cursor: pointer;
 }
@@ -273,32 +273,38 @@
 }
 
 @media (min-width:1024px) {
- 
+
 
   .img {
     width: 360px !important;
   }
 }
+
 /* slider */
 *,
 *:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-#my-img{
-    clip-path: polygon(0 0 , 50% 0, 50% 100%, 0 100%);
+
+#my-img {
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
+
 #slider {
   position: relative;
   -webkit-appearance: none;
-  width: calc( 100% + 40px);
-  height: 10px; /* Adjust this to control track height */
+  width: calc(100% + 40px);
+  height: 10px;
+  /* Adjust this to control track height */
   margin-left: -20px;
-  background-color: transparent; /* Set the background color of the track */
+  background-color: transparent;
+  /* Set the background color of the track */
   outline: none;
-  border-radius: 5px; /* Optional: round the corners of the track */
+  border-radius: 5px;
+  /* Optional: round the corners of the track */
 }
 
 #slider::-webkit-slider-thumb {
@@ -306,8 +312,10 @@
   z-index: 9999;
   height: 40px;
   width: 40px;
-  background: var(--primarycolor); /* Set thumb color to black */
-  border: 2px solid #ffffff; /* White border around the thumb */
+  background: var(--primarycolor);
+  /* Set thumb color to black */
+  border: 2px solid #ffffff;
+  /* White border around the thumb */
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   background-size: contain;
@@ -317,16 +325,21 @@
 #slider::-moz-range-thumb {
   width: 40px;
   height: 40px;
-  background: #000000; /* Set thumb color to black for Firefox */
-  border: 3px solid #ffffff; /* White border around the thumb */
+  background: #000000;
+  /* Set thumb color to black for Firefox */
+  border: 3px solid #ffffff;
+  /* White border around the thumb */
   border-radius: 50%;
   cursor: pointer;
 }
+
 #slider::-ms-thumb {
   width: 40px;
   height: 40px;
-  background: #000000; /* Set thumb color to black for IE */
-  border: 3px solid #ffffff; /* White border around the thumb */
+  background: #000000;
+  /* Set thumb color to black for IE */
+  border: 3px solid #ffffff;
+  /* White border around the thumb */
   border-radius: 50%;
   cursor: pointer;
 }
@@ -335,8 +348,10 @@
 #slider-contaner {
   position: relative;
   width: 100%;
-  height: 460px; /* Adjust based on your preferred height */
-  overflow: hidden; /* To hide any overflowing content */
+  height: 460px;
+  /* Adjust based on your preferred height */
+  overflow: hidden;
+  /* To hide any overflowing content */
 }
 
 /* Style for the images inside the container */
@@ -346,12 +361,14 @@
   height: 100%;
   margin-top: -2rem;
 }
+
 .slider-img {
   width: 360px !important;
   height: 480px !important;
   position: absolute;
 }
-#door{
+
+#door {
   background-color: var(--btncolor);
   width: 25px;
   height: 25px;
@@ -360,9 +377,10 @@
   justify-content: center;
   border-radius: .2rem;
 }
+
 /*  handle for small screen  */
 @media (max-width:576px) {
-  .slider-img{
+  .slider-img {
     width: 100% !important;
   }
 }
@@ -370,4 +388,88 @@
 /* Optionally, hide the second image initially */
 #my-img-2 {
   display: none;
+}
+
+/* eye color css    for eye colors */
+
+
+
+
+
+
+
+
+@media (min-width:768px) and (max-width:1024px) {
+
+
+  .color-picker {
+    width: 50% !important;
+  }
+
+  .color-images {
+    justify-content: start;
+    gap: 6px;
+  }
+}
+
+@media (max-width:320px) {
+  .color-images {
+    gap: 5px;
+  }
+}
+
+@media (max-width:768px) {
+  .img {
+    width: 330px !important;
+  }
+}
+
+@media (min-width:1024px) {
+
+  .img {
+    width: 360px !important;
+  }
+}
+
+/* eye lashes css */
+
+@media (max-width:768px) {
+  .img {
+    width: 330px !important;
+  }
+}
+
+@media (min-width:1024px) {
+
+
+  .img {
+    width: 360px !important;
+  }
+}
+
+#my-img {
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+/* eye lashes  */
+.eye-lashes {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+/*  bronzer pattern */
+.bronzer-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width:768px) {
+  .bronzer-images {
+    gap: 5px;
+  }
 }

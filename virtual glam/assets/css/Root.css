@@ -33,8 +33,8 @@ col-xxl- (Extra extra large, ≥1400px) */
                              --modal-width: 150px;
                              --modal-height: 150px;
                              /* authentication button width */
-                             --auth-button-width:308px;
-                             --auth-button-height:54px;
+                             --auth-button-width: 308px;
+                             --auth-button-height: 54px;
                          }
 
                          @font-face {
@@ -129,7 +129,7 @@ col-xxl- (Extra extra large, ≥1400px) */
 
                          .authenticate {
                              font-size: var(--authentication-heading);
-                         
+
                          }
 
                          .foundation {
@@ -137,14 +137,16 @@ col-xxl- (Extra extra large, ≥1400px) */
                              font-size: var(--ramolina-medium);
                              color: var(--primarycolor);
                          }
-                         .auth-button{
-                            width: var(--auth-button-width);
-                            height: var(--auth-button-height);
+
+                         .auth-button {
+                             width: var(--auth-button-width);
+                             height: var(--auth-button-height);
                              background: linear-gradient(149.67deg, #9E98ED -1.49%, #C3AAE2 49.26%, #EEBFD5 100%);
                          }
-                         .auth-input{
-                            width: 370px;
-                            height: 45px;
+
+                         .auth-input {
+                             width: 370px;
+                             height: 45px;
                          }
 
 
