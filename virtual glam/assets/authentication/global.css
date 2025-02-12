@@ -3,7 +3,6 @@
 :root {
     --primarycolor: #61145a;
     --btncolor: #c6bed3;
-    --secondry-color: #c6bed3;
     /* Font sizes for Poppins */
     --extrasmall: 12px;
     --small: 14px;
@@ -13,8 +12,7 @@
     --large: 24px;
     --authentication-heading: 40px;
     --extralarge: 48px;
-    --auth-form-heading:28px;
-
+    
 
     /* Font sizes for Ramolina Script */
     --ramolina-medium: 40px;
@@ -138,15 +136,10 @@ button {
 }
 
 .auth-input {
-    width: 370px !important;
+    width: 370px;
     height: 45px;
 }
 
-.contour-image-pattern img,
-.product-image-section img {
-    border: 2px solid #c5c1d3;
-    border-radius: .7rem;
-}
 
 
 /*  for screen width is greater than 1024px */

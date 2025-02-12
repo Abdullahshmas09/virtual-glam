@@ -494,3 +494,27 @@
     font-size: 12px;
     text-align: center;
 }
+
+.contour-image-pattern img {
+    width: 70px;
+    height: 70px;
+    gap: 10px;
+}
+
+/*  eye shadow  */
+.buttons-section button {
+    color: black !important;
+    background-color: white !important;
+    border-radius: 2rem !important;
+    border: 2px solid purple;
+}
+
+.change-setting {
+    background-color: var(--secondry-color);
+    color: var(--primarycolor);
+}
+
+.shadow-patterns img {
+   width: 100px;
+   height: 50px; 
+}

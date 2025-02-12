@@ -4,7 +4,9 @@
     background-size: cover;
     position: relative;
   }
-  
+  .auth-form{
+    color: var(--primarycolor);
+  }
   /* Glassy Overlay Effect */
   .signup-login::before {
     content: "";
@@ -32,7 +34,7 @@
   }
   
   .auth-input {
-    border: 1px solid purple;
+    border: 1px solid purple !important;
   }
   
   .signup-section,

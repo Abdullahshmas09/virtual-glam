@@ -151,6 +151,32 @@ jQuery(document).ready(function ($) {
     $("#cross, #undo").css("margin-top", "0");
     $(this).hide();
   });
+  //palette 
+  $("#palette").click(function (e) {
+    e.preventDefault();
+    $("#palette").css("border", "1px solid purple")
+    $("#content-first , #content-third").addClass("d-none")
+    $("#powder, #face-palette").css("border", "none")
+    $("#content-second").removeClass("d-none")
+  });
+  // powder
+  $("#powder").click(function (e) {
+    e.preventDefault();
+    $("#powder").css("border", "1px solid purple")
+    $("#content-second , #content-third").addClass("d-none")
+    $("#palette, #face-palette").css("border", "none")
+    $("#content-first").removeClass("d-none")
+  });
+  // face-palette
+  $("#face-palette").click(function (e) {
+    e.preventDefault();
+    $("#face-palette").css("border", "1px solid purple")
+    $("#content-second , #content-first").addClass("d-none")
+    $("#powder , #palette").css("border", "none")
+    $("#content-third").removeClass("d-none")
+  });
+
+  
 
 });
 // Adjust opacity based on slider value
@@ -165,6 +191,8 @@ function slide() {
     $("#image2").css("opacity", "1");
   }
 }
+
+
 
 
 
