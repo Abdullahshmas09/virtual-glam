@@ -501,15 +501,8 @@
     gap: 10px;
 }
 
-/*  eye shadow  */
-.buttons-section button {
-    color: black !important;
-    background-color: white !important;
-    border-radius: 2rem !important;
-    border: 2px solid purple;
-}
 
-.change-setting {
+.change-setting{
     background-color: var(--secondry-color);
     color: var(--primarycolor);
 }
@@ -517,4 +510,17 @@
 .shadow-patterns img {
    width: 100px;
    height: 50px; 
+}
+.lip-foundation-blush{
+    margin-top: 5rem;
+}
+.lip-foundation-blush p{
+    font-size: 14px !important;
+}
+.blushon-image-pattern img{
+    border: 2px solid #c5c1d3;
+    width: 70px;
+    height: 72px;
+    padding: 4px;
+    border-radius: .75rem;
 }

@@ -616,6 +616,13 @@ button {
     }
 }
 
+.buttons-section button{
+    color: black;
+    background-color: white ;
+    border-radius: 2rem ;
+    border: 2px solid purple;
+}
+
 @media (width:768px) {
     .try-glam {
         margin-top: -1rem;

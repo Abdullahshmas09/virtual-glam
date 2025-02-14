@@ -4,7 +4,7 @@ $(document).ready(function () {
     $("#login-button").click(function (e) {
         e.preventDefault();
         console.log("Login button clicked");
-        $("#login-section, #signup-form-section,#pending-email-section,#password-verification-section ").addClass("d-none");
+        $("#login-section, #signup-form-section,#pending-email-section,#password-verification-section ,#forgot-password-section").addClass("d-none");
         $("#signup-section, #login-form-section").removeClass("d-none");
     });
 
@@ -18,8 +18,8 @@ $(document).ready(function () {
 
     $("#forget").click(function (e) {
         e.preventDefault();
-        $("#signup-section, #forgot-password-section").removeClass("d-none");
-        $("#login-form-section, #signup-form-section,#pending-email-section,#password-verification-section ").addClass("d-none");
+        $("#login-section, #forgot-password-section").removeClass("d-none");
+        $("#login-form-section, #signup-form-section,#pending-email-section,#password-verification-section ,#signup-section ").addClass("d-none");
     });
 
     $("#signup-form-button").click(function (e) {

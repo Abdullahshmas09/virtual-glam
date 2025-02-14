@@ -176,8 +176,63 @@ jQuery(document).ready(function ($) {
     $("#content-third").removeClass("d-none")
   });
 
-  
+  function applyStyles(activeId, sectionsToShow) {
+    // Reset all buttons to their original styles before applying new styles
+    $("#single, #dual, #tripple, #quad").css({
+      "background": "white",
+      "color": "black",
+      "border": "2px solid purple"
+    }).addClass("buttons-section");
 
+    // Hide all content inside the sections
+    $("#single-color, #double-color, #tri-color, #quad-color, #single-pattern, #dual-pattern, #tri-pattern, #quad-pattern").children().hide();
+
+    // Apply styles to the currently active button
+    $(activeId).removeClass("buttons-section").css({
+      "background": "#c6bed3",
+      "color": "#61145a",
+      "border": "none"
+    });
+
+    // Show only the relevant sections
+    $(sectionsToShow).children().show();
+    $(sectionsToShow).removeClass("d-none");
+  }
+
+  $("#single, #dual, #tripple, #quad").click(function () {
+    let idMap = {
+      "single": "#single-color, #single-pattern",
+      "dual": "#double-color, #dual-pattern",
+      "tripple": "#tri-color, #tri-pattern",
+      "quad": "#quad-color, #quad-pattern",
+    };
+
+    applyStyles("#" + this.id, idMap[this.id]);
+  });
+  //  IMAGES BORDER
+  $('#single-color img:not(#main, #none), #double-color img:not(#main, #none), #tri-color img:not(#main, #none), #quad-color img:not(#main, #none)').on('click', function () {
+    // Remove border from all images (excluding #main and #none)
+    $('#single-color img, #double-color img, #tri-color img, #quad-color img').css({
+      "border": "none",
+      "borderRadius": "0"
+    });
+
+    // Add border to the clicked image
+    $(this).css({
+      "border": "3px solid purple",
+      "borderRadius": "1rem"
+    });
+  });
+  // pattern
+
+  $(document).ready(function () {
+    $("div[id$='pattern']").each(function () {
+      $(this).on("click", "img", function () {
+        $(this).siblings().css({ "border": "", "border-radius": "" });
+        $(this).css({ "border": "3px solid purple", "border-radius": "1rem" });
+      });
+    });
+  });
 });
 // Adjust opacity based on slider value
 function slide() {

@@ -89,15 +89,20 @@ $(document).ready(function () {
       .hide();
 
     $(sectionToShow).show();
+    $(sectionToShow).removeClass("d-none")
     $(activeId).css({ "border": "5px solid purple", "border-radius": "10rem" });
+    console.log("activeId:", activeId);
+    console.log("sectionToShow:", sectionToShow);
+    console.log("Element exists?", $(activeId).length, $(sectionToShow).length);
+
   }
 
   // Click event for sections
   $("#lips-liner, #lips-color, #eye-colors, #contours, #eye-shadows, #eye-liners, #eye-lashes, #bronzers, #concealers, #blushes, #foundation").click(function () {
     let idMap = {
       "lips-liner": "#lip-liner",
-      "lips-color": "#lip-color",
       "eye-colors": "#eye-color",
+      "lips-color": "#lip-color",
       "contours": "#contour",
       "eye-shadows": "#eye-shadow",
       "eye-liners": "#eye-liner",
@@ -105,7 +110,7 @@ $(document).ready(function () {
       "bronzers": "#bronzer",
       "concealers": "#concealer",
       "blushes": "#blush",
-      "foundation": "#foundation"
+      "foundations": "#foundation"
     };
 
     applyStyles("#" + this.id, idMap[this.id]);
