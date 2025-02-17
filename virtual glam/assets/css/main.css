@@ -502,25 +502,37 @@
 }
 
 
-.change-setting{
+.change-setting {
     background-color: var(--secondry-color);
     color: var(--primarycolor);
 }
 
 .shadow-patterns img {
-   width: 100px;
-   height: 50px; 
+    width: 100px;
+    height: 50px;
 }
-.lip-foundation-blush{
+
+.lip-foundation-blush {
     margin-top: 5rem;
 }
-.lip-foundation-blush p{
+
+.lip-foundation-blush p {
     font-size: 14px !important;
+    width: 300px !important;
 }
-.blushon-image-pattern img{
+
+@media (max-width:786px) {
+    .lip-foundation-blush p{
+        width: 200px !important;
+    }
+}
+.blushon-image-pattern img {
     border: 2px solid #c5c1d3;
     width: 70px;
     height: 72px;
     padding: 4px;
     border-radius: .75rem;
+}
+.feature-section{
+   padding-top: 2rem;
 }

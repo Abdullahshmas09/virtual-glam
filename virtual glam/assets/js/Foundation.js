@@ -224,14 +224,20 @@ jQuery(document).ready(function ($) {
     });
   });
   // pattern
-
-  $(document).ready(function () {
-    $("div[id$='pattern']").each(function () {
-      $(this).on("click", "img", function () {
-        $(this).siblings().css({ "border": "", "border-radius": "" });
-        $(this).css({ "border": "3px solid purple", "border-radius": "1rem" });
-      });
+  $("div[id$='pattern']").each(function () {
+    $(this).on("click", "img", function () {
+      $(this).siblings().css({ "border": "", "border-radius": "" });
+      $(this).css({ "border": "3px solid purple", "border-radius": "1rem" });
     });
+  });
+  // contour image pattern 
+
+  $("#content-first img:not(#none), #content-second img:not(#none), #content-third img").click(function (e) {
+    e.preventDefault();
+
+    // Remove border from all images before applying to the clicked one
+    $("#content-first img, #content-second img, #content-third img").css({ "border": "none" });
+    $(this).css({ "border": "3px solid purple", "border-radius": "1rem" });
   });
 });
 // Adjust opacity based on slider value
