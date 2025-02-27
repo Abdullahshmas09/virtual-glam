@@ -1,267 +1,273 @@
 // Load header and footer dynamically
-fetch('header.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('header').innerHTML = data;
-  })
-  .catch(error => console.error('Error loading header:', error));
-
-fetch('Footer.html')
-  .then(response => response.text())
-  .then(data => {
-    const footer = document.getElementById('footer');
-    if (footer) {
-      footer.innerHTML = data;
-    } else {
-      console.error('Footer element not found');
-    }
-  })
-  .catch(error => console.error('Error loading footer:', error));
+function loadContent(url, elementId) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = data;
+            } else {
+                console.error(`${elementId} element not found`);
+            }
+        })
+        .catch(error => console.error(`Error loading ${url}:`, error));
+}
+loadContent('header.html', 'header');
+loadContent('Footer.html', 'footer');
 
 // Slick slider setup for banner sliders
-jQuery(document).ready(function ($) {
-  $('.bannerSlider, .bannerSlider1').each(function () {
-    $(this).slick({
-      dots: false,
-      arrows: true,
-      infinite: true,
-      speed: $(this).hasClass('bannerSlider') ? 1000 : 3000,
-      slidesToShow: 6,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: $(this).hasClass('bannerSlider') ? 1000 : 10000,
-      responsive: [
-        {
-          breakpoint: 600,
-          settings: { slidesToShow: 2, slidesToScroll: 1, arrows: false },
-        },
-        {
-          breakpoint: 400,
-          settings: { slidesToShow: 2, slidesToScroll: 1, arrows: $(this).hasClass('bannerSlider1') },
-        },
-      ],
-    });
-  });
-  // Apply styles and display sections dynamically
-  function applyStyles(activeId, sectionToShow) {
-    $("#lips-color, #eye-colors, #lips-liner, #contours, #eye-shadows, #eye-liners, #bronzers, #blushes, #foundation, #eye-lashes, #concealers")
-      .css("border", "none");
-
-    $("#lip-color, #lip-liner, #eye-color, #contour, #eye-shadow, #eye-liner, #eye-lash, #bronzer, #concealer, #blush, #foundation")
-      .hide();
-
-    $(sectionToShow).show();
-    $(activeId).css({ "border": "5px solid purple", "border-radius": "10rem" });
-  }
-
-  $("#lips-liner, #lips-color, #eye-colors, #contours, #eye-shadows, #eye-liners, #eye-lashes, #bronzers, #concealers, #blushes, #foundation").click(function () {
-    const idMap = {
-      "lips-liner": "#lip-liner",
-      "lips-color": "#lip-color",
-      "eye-colors": "#eye-color",
-      "contours": "#contour",
-      "eye-shadows": "#eye-shadow",
-      "eye-liners": "#eye-liner",
-      "eye-lashes": "#eye-lash",
-      "bronzers": "#bronzer",
-      "concealers": "#concealer",
-      "blushes": "#blush",
-      "foundation": "#foundation",
-    };
-
-    applyStyles("#" + this.id, idMap[this.id]);
-  });
-
-  $('.bannerSlider1').on('afterChange', function (event, slick, currentSlide) {
-    let activeSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + currentSlide + '"] img');
-    let sectionId = activeSlide.attr('id');
-
-    if (!sectionId) return;
-
-    const idMap = {
-      "lips-liner": "#lip-liner",
-      "eye-colors": "#eye-color",
-      "lips-color": "#lip-color",
-      "contours": "#contour",
-      "eye-shadows": "#eye-shadow",
-      "eye-liners": "#eye-liner",
-      "eye-lashes": "#eye-lash",
-      "bronzers": "#bronzer",
-      "concealers": "#concealer",
-      "blushes": "#blush",
-      "foundations": "#foundation",
-    };
-
-    applyStyles("#" + sectionId, idMap[sectionId]);
-  });
-  // Slick slider setup for color images
-  $('#color-images').slick({
-    dots: false,
-    arrows: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    autoplaySpeed: 1000,
-    centerMode: true,
-    variableWidth: true,
-    responsive: [
-      { breakpoint: 768, settings: { slidesToShow: 3, slidesToScroll: 1, arrows: true } },
-      { breakpoint: 576, settings: { slidesToShow: 2, slidesToScroll: 1, arrows: true } },
-      { breakpoint: 400, settings: { slidesToShow: 1, slidesToScroll: 1, arrows: false } },
-    ],
-  });
-  // Toggle modal content
-  $('#choose-modal').click(function () {
-    $('#content1').hide();
-    $('#content2').show();
-  });
-
-  $('#cross').click(function () {
-    $('#content2').hide();
-    $('#content1').show();
-  });
-  // Zoom functionality
-  let zoomLevel = 1;
-
-  $('#plus-btn').click(function () {
-    zoomLevel += 0.1;
-    $('#pic').css({ 'transform': `scale(${zoomLevel})`, 'max-width': '100%', 'max-height': '100%' });
-  });
-
-  $('#minus-btn').click(function () {
-    if (zoomLevel > 0.5) {
-      zoomLevel -= 0.1;
-      $('#pic').css({ 'transform': `scale(${zoomLevel})`, 'max-width': '100%', 'max-height': '100%' });
-    }
-  });
-
-  // Toggle elements on click
-  $("#solid1").click(function () {
-
-    $("#pic, #download-btn, #plus-btn, #first-slider, #minus-btn").hide();
-    $("#door").show().css("z-index", "999");
-    $("#cross, #undo").css("margin-top", "2rem");
-    $("#slider-contaner").fadeIn();
-  });
-
-  $("#door").click(function (e) {
-    e.preventDefault();
-    $("#pic, #download-btn, #plus-btn, #first-slider, #minus-btn").show();
-    $("#cross, #undo").css("margin-top", "0");
-    $(this).hide();
-  });
-  //palette 
-  $("#palette").click(function (e) {
-    e.preventDefault();
-    $("#palette").css("border", "1px solid purple")
-    $("#content-first , #content-third").addClass("d-none")
-    $("#powder, #face-palette").css("border", "none")
-    $("#content-second").removeClass("d-none")
-  });
-  // powder
-  $("#powder").click(function (e) {
-    e.preventDefault();
-    $("#powder").css("border", "1px solid purple")
-    $("#content-second , #content-third").addClass("d-none")
-    $("#palette, #face-palette").css("border", "none")
-    $("#content-first").removeClass("d-none")
-  });
-  // face-palette
-  $("#face-palette").click(function (e) {
-    e.preventDefault();
-    $("#face-palette").css("border", "1px solid purple")
-    $("#content-second , #content-first").addClass("d-none")
-    $("#powder , #palette").css("border", "none")
-    $("#content-third").removeClass("d-none")
-  });
-
-  function applyStyles(activeId, sectionsToShow) {
-    // Reset all buttons to their original styles before applying new styles
-    $("#single, #dual, #tripple, #quad").css({
-      "background": "white",
-      "color": "black",
-      "border": "2px solid purple"
-    }).addClass("buttons-section");
-
-    // Hide all content inside the sections
-    $("#single-color, #double-color, #tri-color, #quad-color, #single-pattern, #dual-pattern, #tri-pattern, #quad-pattern").children().hide();
-
-    // Apply styles to the currently active button
-    $(activeId).removeClass("buttons-section").css({
-      "background": "#c6bed3",
-      "color": "#61145a",
-      "border": "none"
+$(document).ready(function() {
+    $('.bannerSlider, .bannerSlider1').each(function() {
+        const isBannerSlider = $(this).hasClass('bannerSlider');
+        $(this).slick({
+            dots: false,
+            arrows: true,
+            infinite: true,
+            speed: isBannerSlider ? 1000 : 3000,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: isBannerSlider ? 1000 : 10000,
+            responsive: [{
+                    breakpoint: 600,
+                    settings: { slidesToShow: 2, slidesToScroll: 1, arrows: false },
+                },
+                {
+                    breakpoint: 400,
+                    settings: { slidesToShow: 2, slidesToScroll: 1, arrows: $(this).hasClass('bannerSlider1') },
+                },
+            ],
+        });
     });
 
-    // Show only the relevant sections
-    $(sectionsToShow).children().show();
-    $(sectionsToShow).removeClass("d-none");
-  }
 
-  $("#single, #dual, #tripple, #quad").click(function () {
-    let idMap = {
-      "single": "#single-color, #single-pattern",
-      "dual": "#double-color, #dual-pattern",
-      "tripple": "#tri-color, #tri-pattern",
-      "quad": "#quad-color, #quad-pattern",
-    };
-
-    applyStyles("#" + this.id, idMap[this.id]);
-  });
-  //  IMAGES BORDER
-  $('#single-color img:not(#main, #none), #double-color img:not(#main, #none), #tri-color img:not(#main, #none), #quad-color img:not(#main, #none)').on('click', function () {
-    // Remove border from all images (excluding #main and #none)
-    $('#single-color img, #double-color img, #tri-color img, #quad-color img').css({
-      "border": "none",
-      "borderRadius": "0"
+    // Modal toggle functionality
+    $('#choose-modal').click(function() {
+        $('#content1').hide();
+        $('#content2').show();
     });
 
-    // Add border to the clicked image
-    $(this).css({
-      "border": "3px solid purple",
-      "borderRadius": "1rem"
+    $('#cross').click(function() {
+        $('#content2').hide();
+        $('#content1').show();
     });
-  });
-  // pattern
-  $("div[id$='pattern']").each(function () {
-    $(this).on("click", "img", function () {
-      $(this).siblings().css({ "border": "", "border-radius": "" });
-      $(this).css({ "border": "3px solid purple", "border-radius": "1rem" });
+
+    // Zoom functionality
+    let zoomLevel = 1;
+    $('#plus-btn').click(function() {
+        zoomLevel += 0.1;
+        $('#pic').css({ 'transform': `scale(${zoomLevel})`, 'max-width': '100%', 'max-height': '100%' });
     });
-  });
-  // contour image pattern 
 
-  $("#content-first img:not(#none), #content-second img:not(#none), #content-third img").click(function (e) {
-    e.preventDefault();
+    $('#minus-btn').click(function() {
+        if (zoomLevel > 0.5) {
+            zoomLevel -= 0.1;
+            $('#pic').css({ 'transform': `scale(${zoomLevel})`, 'max-width': '100%', 'max-height': '100%' });
+        }
+    });
 
-    // Remove border from all images before applying to the clicked one
-    $("#content-first img, #content-second img, #content-third img").css({ "border": "none" });
-    $(this).css({ "border": "3px solid purple", "border-radius": "1rem" });
-  });
+    // Toggle elements on click
+    $("#solid1").click(function() {
+        $("#pic, #download-btn, #plus-btn, #first-slider, #minus-btn").hide();
+        $("#door").show().css("z-index", "999");
+        $("#cross, #undo").css("margin-top", "2rem");
+        $("#slider-contaner").fadeIn();
+    });
+
+    $("#door").click(function(e) {
+        e.preventDefault();
+        $("#pic, #download-btn, #plus-btn, #first-slider, #minus-btn").show();
+        $("#cross, #undo").css("margin-top", "0");
+        $(this).hide();
+    });
+
+    // Palette, Powder, and Face-Palette selectors
+    $("#palette, #powder, #face-palette").click(function(e) {
+
+        const idMap = {
+            "#palette": "#content-second",
+            "#powder": "#content-first",
+            "#face-palette": "#content-third",
+        };
+        const targetSection = idMap[this.id];
+        $(this).css("border", "1px solid purple").siblings().css("border", "none");
+        $(".content-section").addClass("d-none");
+        $(targetSection).removeClass("d-none");
+    });
+
+    // Pattern Image Selector
+    $("div[id$='pattern']").each(function() {
+        $(this).on("click", "img", function() {
+            $(this).siblings().css({ "border": "", "border-radius": "" });
+            $(this).css({ "border": "3px solid purple", "border-radius": "1rem" });
+        });
+    });
+    // Contour image pattern
+    $("#content-first img, #content-second img, #content-third img").click(function() {
+        $(this).siblings().css({ "border": "none" });
+        $(this).css({ "border": "3px solid purple", "border-radius": "1rem" });
+    });
+    // Image border handling
+    $('#single-color img , #double-color img , #tri-color img , #quad-color img').on('click', function() {
+        $('#single-color img, #double-color img, #tri-color img, #quad-color img').css({
+            "border": "none",
+            "borderRadius": "0"
+        });
+        $(this).css({
+            "border": "3px solid purple",
+            "borderRadius": "1rem"
+        });
+    });
+
+    // Handle button clicks
+    $(".buttons-section button").click(function() {
+        // Reset styles for all buttons
+        $(".buttons-section button").css({
+            "background": "",
+            "color": "",
+            "border": ""
+        });
+
+        // Apply styles to the clicked button
+        $(this).css({
+            "background": "#c6bed3",
+            "color": "#61145a",
+            "border": "none"
+        });
+    });
+
+
+
+    // Image border handling
+    $('.single-color img:not(.main-image), .double-color img:not(.main-image), .tri-color img:not(.main-image), .quad-color img:not(.main-image)').on('click', function() {
+        $('.single-color img, .double-color img, .tri-color img, .quad-color img').css({
+            "border": "none",
+            "borderRadius": "0"
+        });
+        $(this).css({
+            "border": "3px solid purple",
+            "borderRadius": "1rem"
+        });
+    });
+
+
 });
-// Adjust opacity based on slider value
-function slide() {
-  let slideValue = document.getElementById("slider").value;
 
-  if (slideValue <= 50) {
-    $("#image1").css("opacity", "1");
-    $("#image2").css("opacity", "0");
-  } else {
-    $("#image1").css("opacity", "0");
-    $("#image2").css("opacity", "1");
-  }
+// Adjust opacity based on slider value
+
+function slide() {
+    let slideValue = document.getElementById("slider").value;
+    if (slideValue <= 50) {
+        $("#image1").css("opacity", "1");
+        $("#image2").css("opacity", "0");
+    } else {
+        $("#image1").css("opacity", "0");
+        $("#image2").css("opacity", "1");
+    }
 }
 
 
+function openColorPicker() {
+    document.getElementById('color-picker').click();
+
+}
+
+$(document).ready(function() {
+    const $colorPicker = $("#color-picker");
+    const $addColorButton = $("#add-color-button");
+    const $selectedColorsContainer = $("#selected-colors");
+    const $selectedColorsInput = $("#selected-colors-input");
+
+    // Array to store selected colors
+    let selectedColors = [];
+
+    // Function to update the hidden input with selected colors
+    function updateSelectedColorsInput() {
+        $selectedColorsInput.val(selectedColors.join(","));
+    }
 
 
+    let maxColors = 1;
 
+    // Function to set the maximum number of colors based on the button clicked
+    function setMaxColors(limit) {
+        maxColors = limit;
 
+    }
 
+    // Function to add a color
+    function addColor(color) {
+        if (selectedColors.length >= maxColors) {
+            return;
+        }
 
+        if (!selectedColors.includes(color)) {
+            selectedColors.push(color);
+            const $colorBox = $("<div>").addClass("color-box").css("background-color", color);
+            const $removeButton = $("<div>")
+                .addClass("remove-color")
+                .html("×")
+                .on("click", function() {
+                    selectedColors = selectedColors.filter(c => c !== color);
+                    $colorBox.remove();
+                    updateSelectedColorsInput();
+                });
 
+            $colorBox.append($removeButton);
+            $selectedColorsContainer.append($colorBox);
+            updateSelectedColorsInput();
+        }
+    }
+    $("#single").click(function(e) {
+        e.preventDefault();
+        setMaxColors(1);
+    });
 
+    $("#dual").click(function(e) {
+        e.preventDefault();
+        setMaxColors(2);
+    });
 
+    $("#tripple").click(function(e) {
+        e.preventDefault();
+        setMaxColors(3);
+    });
 
+    $("#quad").click(function(e) {
+        e.preventDefault();
+        setMaxColors(4);
+    });
 
+    $colorPicker.on("input", function() {
+        const color = $(this).val();
+        addColor(color);
+    });
+});
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+
+    // Get all tab content elements and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all tab link elements and remove "active" class
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+
+    // Show the selected tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.classList.add("active");
+}
+
+// Show the first tab by default on page load
+document.addEventListener("DOMContentLoaded", function() {
+    var defaultTab = document.getElementsByClassName("tablinks")[0];
+    if (defaultTab) {
+        defaultTab.click(); // Simulate a click to open the first tab
+    }
+});

@@ -9,7 +9,6 @@
     height: 480px;
 }
 
-
 .foundation-section {
     margin-top: 4.5rem;
 }
@@ -26,23 +25,43 @@
 }
 
 .color-images {
-    width: 100%;
     /* Make it responsive */
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
     /* Ensure proper wrapping on smaller screens */
     gap: 10px;
     /* Add space between items */
 }
 
-#color-images img {
-    width: 50px;
+@media (max-width:768px) {
+    .color-images img {
+        width: 90px !important;
+    }
+}
+
+.color-images img {
+    width: 50px !important;
     /* Maintain consistent image size */
-    height: 50px;
+    height: 50px !important;
     object-fit: cover;
     border-radius: 5px;
+}
+
+.lashes-images img {
+    width: 90px !important;
+}
+
+@media (max-width:1024px) {
+    .lashes-images img {
+        width: 60px !important;
+    }
+}
+
+.lashes-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .slick-slide {
@@ -58,26 +77,24 @@
 #content2 {
     overflow: hidden;
     height: 470px;
-
     position: relative;
 }
 
 .test {
     height: 100%;
     transform-origin: 50% 0%;
-
 }
 
+
 /* Media Queries */
+
 @media (max-width:576px) {
     .foundation-section {
         margin-top: 4rem;
     }
-
     .virtual {
         display: none;
     }
-
     .parent-box {
         width: 100% !important;
     }
@@ -87,7 +104,6 @@
     .try-on {
         width: 120px !important;
     }
-
     .virtual {
         font-size: var(--large);
     }
@@ -95,19 +111,14 @@
 
 @media (min-width:768px) and (max-width:1024px) {
     .choose-try-on {
-        width: 50% !important;
+        width: 45% !important;
     }
-
     .color-picker {
         width: 50% !important;
     }
 }
 
-
-
-
 #imageModal {
-
     background-size: cover;
     /* Ensures the background image covers the entire modal */
     background-position: center;
@@ -119,7 +130,9 @@
     margin-top: 1rem;
 }
 
+
 /* Wrapper for the image */
+
 .image-wrapper {
     position: relative;
     width: 100%;
@@ -127,19 +140,22 @@
     height: auto;
 }
 
+
 /* The image itself */
+
 .image-wrapper img {
     width: 360px;
     height: 480px;
 }
 
+
 /* Text overlay on the image */
+
 .text-overlay {
     position: absolute;
     top: 10%;
     width: 92%;
 }
-
 
 .solid {
     width: 25px;
@@ -159,7 +175,9 @@
     border-radius: .2rem;
 }
 
+
 /* dosri larki css */
+
 .content3 {
     position: relative;
 }
@@ -183,18 +201,17 @@
     }
 }
 
-/*  range slider css */
-/* Container to center the slider */
 .slider-container {
     position: relative;
     width: 130px;
     /* Set width for the slider */
     height: 40px;
     /* Height of the container */
-
 }
 
+
 /* The slider itself */
+
 .slider {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -215,10 +232,11 @@
     position: absolute;
     left: 50px;
     top: -40px;
-
 }
 
+
 /* The thumb (draggable part) of the slider */
+
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 20px;
@@ -250,12 +268,9 @@
     cursor: pointer;
 }
 
-
-
 #pic {
     transition: transform 0.3s ease;
     /* Smooth zoom effect */
-
 }
 
 .zoomed-out {
@@ -273,20 +288,9 @@
 }
 
 @media (min-width:1024px) {
-
-
     .img {
         width: 360px !important;
     }
-}
-
-/* slider */
-*,
-*:before,
-*:after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
 }
 
 #my-img {
@@ -344,7 +348,9 @@
     cursor: pointer;
 }
 
+
 /* Make sure the container is styled properly */
+
 #slider-contaner {
     position: relative;
     width: 100%;
@@ -354,7 +360,9 @@
     /* To hide any overflowing content */
 }
 
+
 /* Style for the images inside the container */
+
 .image-box {
     position: relative;
     width: 100%;
@@ -378,30 +386,32 @@
     border-radius: .2rem;
 }
 
+
 /*  handle for small screen  */
+
 @media (max-width:576px) {
     .slider-img {
         width: 100% !important;
     }
 }
 
+
 /* Optionally, hide the second image initially */
+
 #my-img-2 {
     display: none;
 }
 
+
 /* eye color css    for eye colors */
 
 @media (min-width:768px) and (max-width:1024px) {
-
-
     .color-picker {
         width: 50% !important;
     }
-
     .color-images {
         justify-content: start;
-        gap: 6px;
+        gap: 10px;
     }
 }
 
@@ -418,11 +428,11 @@
 }
 
 @media (min-width:1024px) {
-
     .img {
         width: 360px !important;
     }
 }
+
 
 /* eye lashes css */
 
@@ -433,8 +443,6 @@
 }
 
 @media (min-width:1024px) {
-
-
     .img {
         width: 360px !important;
     }
@@ -444,7 +452,9 @@
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
 
+
 /* eye lashes  */
+
 .eye-lashes {
     align-items: center;
     display: flex;
@@ -454,7 +464,9 @@
     gap: 10px;
 }
 
+
 /*  bronzer pattern */
+
 .bronzer-images {
     display: flex;
     flex-wrap: wrap;
@@ -473,7 +485,9 @@
     }
 }
 
+
 /*  for contour section */
+
 .product-image-section {
     display: flex;
     gap: 20px;
@@ -501,7 +515,6 @@
     gap: 10px;
 }
 
-
 .change-setting {
     background-color: var(--secondry-color);
     color: var(--primarycolor);
@@ -521,11 +534,20 @@
     width: 300px !important;
 }
 
-@media (max-width:786px) {
-    .lip-foundation-blush p{
+@media (max-width: 576px) {
+    .tab-images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 786px) {
+    .lip-foundation-blush p {
         width: 200px !important;
     }
 }
+
 .blushon-image-pattern img {
     border: 2px solid #c5c1d3;
     width: 70px;
@@ -533,6 +555,83 @@
     padding: 4px;
     border-radius: .75rem;
 }
-.feature-section{
-   padding-top: 2rem;
+
+.feature-section {
+    padding-top: 2rem;
+}
+
+.input-field {
+    border-radius: 10px;
+}
+
+.color-input {
+    width: 50px !important;
+    height: 50px;
+    border: none;
+    background: black;
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+
+@media (min-width:1024px) {
+    .color-input {
+        position: absolute;
+        top: 45%;
+        left: 40%;
+    }
+}
+
+.multi-color-picker {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.color-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#selected-colors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.color-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    position: relative;
+}
+
+.color-box .remove-color {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+/* for tab  */
+
+.tabcontent {
+    display: none;
+}
+
+.tablinks {
+    width: 140px;
+    height: 45px;
 }

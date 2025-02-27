@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jQuery and jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+</head>
+
+
+<style>
+    .multi-color-picker {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    
+    .color-input-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #selected-colors {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .color-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .color-box .remove-color {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: red;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="multi-color-picker">
+        <!-- Color input and add button -->
+        <div class="color-input-container">
+            <input type="color" id="color-picker">
+            <button id="add-color-button">Add Color</button>
+        </div>
+
+
+        <div id="selected-colors">
+
+        </div>
+
+
+        <input type="hidden" id="selected-colors-input" name="selected-colors">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function() {
+            const $colorPicker = $("#color-picker");
+            const $addColorButton = $("#add-color-button");
+            const $selectedColorsContainer = $("#selected-colors");
+            const $selectedColorsInput = $("#selected-colors-input");
+
+            // Array to store selected colors
+            let selectedColors = [];
+
+            // Function to update the hidden input with selected colors
+            function updateSelectedColorsInput() {
+                $selectedColorsInput.val(selectedColors.join(","));
+            }
+
+            // Function to add a color to the list
+            function addColor(color) {
+                if (!selectedColors.includes(color)) {
+                    selectedColors.push(color);
+
+                    // Create a color box for the new color
+                    const $colorBox = $("<div>").addClass("color-box").css("background-color", color);
+
+
+
+                    // Add a remove button to the color box
+                    const $removeButton = $("<div>")
+                        .addClass("remove-color")
+                        .html("×")
+                        .on("click", function() {
+                            // Remove the color from the array
+                            selectedColors = selectedColors.filter(c => c !== color);
+
+                            // Remove the color box from the DOM
+                            $colorBox.remove();
+
+                            // Update the hidden input
+                            updateSelectedColorsInput();
+                        });
+
+                    $colorBox.append($removeButton);
+                    $selectedColorsContainer.append($colorBox);
+
+                    // Update the hidden input
+                    updateSelectedColorsInput();
+                }
+            }
+
+            // Add color when the button is clicked
+            $addColorButton.on("click", function() {
+                const color = $colorPicker.val();
+                addColor(color);
+            });
+
+            // Add color when the color picker value changes
+            $colorPicker.on("input", function() {
+                const color = $(this).val();
+                addColor(color);
+            });
+        });
+    </script>
+
+</body>
+
+
+</html>
