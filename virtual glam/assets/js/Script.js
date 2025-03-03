@@ -138,15 +138,20 @@ $(document).ready(function() {
         };
 
         applyStyles("#" + sectionId, idMap[sectionId]);
-
-        // If the active slide is "eye-liners", apply styles to all remaining slides
-        if (sectionId === "eye-liners") {
-            for (let i = currentSlide + 1; i < totalSlides; i++) {
-                let nextSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + i + '"] img');
-                activeSlide.css({ 'border': 'none', 'border-radius': '' })
-                nextSlide.css({ 'border': '4px solid purple', 'border-radius': '10rem' });
+        setTimeout(() => {
+            if (sectionId === "eye-liners") {
+                for (let i = currentSlide + 1; i < totalSlides; i++) {
+                    ((index) => {
+                        setTimeout(() => {
+                            let prevSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + (index - 1) + '"] img');
+                            let nextSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + index + '"] img');
+                            prevSlide.css({ 'border': '', 'border-radius': '' });
+                            nextSlide.css({ 'border': '4px solid purple', 'border-radius': '10rem' });
+                        }, (index - currentSlide) * 2000);
+                    })(i);
+                }
             }
-        }
+        }, 2000);
     });
 
 });

@@ -92,40 +92,54 @@
                     </div>
                 </div>
                 <!-- Color Picker Section -->
-                <div class="color-picker ps-md-5 col-md-8 mt-4">
+
+
+
+
+                <div class="color-picker ps-md-5 col-md-8">
                     <h3 class="virtual">
                         Virtual <span class="foundation">Foundation</span> Try On
                     </h3>
                     <h3 class="mt-3">Colors:</h3>
-                    <div class="buttons-section d-flex flex-wrap gap-3">
-                        <button id="single">Single Color</button>
-                        <button id="dual">Dual Color</button>
+
+                    <!-- Tab Buttons -->
+                    <div class="tab buttons-section d-flex gap-3 flex-wrap">
+                        <button id="single" class="tablinks" onclick="openCity(event, 'London')">Single Color</button>
+                        <button id="dual" class="tablinks" onclick="openCity(event, 'Paris')">Dual Color</button>
                     </div>
-                    <div id="color-images" class="mt-3 d-flex flex-wrap single-color gap-3">
-                        <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
-                        <img src="assets/images/foundation/colors/Rectangle 137.png" alt="Color 2" />
-                        <img src="assets/images/foundation/colors/Rectangle 38.png" alt="Color 3" />
-                        <img src="assets/images/foundation/colors/Rectangle 39.png" alt="Color 4" />
-                        <img src="assets/images/foundation/colors/Rectangle 40.png" alt="Color 5" />
-                        <img src="assets/images/foundation/colors/Rectangle 41.png" alt="Color 6" />
-                        <img src="assets/images/foundation/colors/Rectangle 42.png" alt="Color 7" />
-                        <img src="assets/images/foundation/colors/Rectangle 43.png" alt="Color 8" />
-                        <img src="assets/images/foundation/colors/Rectangle 44 (2).png" alt="Color 9" />
-                        <img src="assets/images/foundation/colors/Rectangle 45.png" alt="Color 10" />
+
+                    <!-- Tab Content -->
+                    <div id="London" class="tabcontent">
+                        <div id="single-color" class="d-flex gap-3 mt-3 tab-images flex-wrap">
+                            <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
+                            <img src="assets/images/foundation/colors/Rectangle 137.png" alt="Color 2" />
+                            <img src="assets/images/foundation/colors/Rectangle 38.png" alt="Color 3" />
+                            <img src="assets/images/foundation/colors/Rectangle 39.png" alt="Color 4" />
+                            <img src="assets/images/foundation/colors/Rectangle 40.png" alt="Color 5" />
+                            <img src="assets/images/foundation/colors/Rectangle 41.png" alt="Color 6" />
+                            <img src="assets/images/foundation/colors/Rectangle 42.png" alt="Color 7" />
+                            <img src="assets/images/foundation/colors/Rectangle 43.png" alt="Color 8" />
+                            <img src="assets/images/foundation/colors/Rectangle 44 (2).png" alt="Color 9" />
+                            <img src="assets/images/foundation/colors/Rectangle 45.png" alt="Color 10" />
+                        </div>
                     </div>
-                    <!-- double color -->
-                    <div id="dual-color-images" class="mt-3 d-flex flex-wrap double-color d-none gap-3">
-                        <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
-                        <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 38 (4).png" alt="Color 1" />
-                        <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 39 (1).png" alt="Color 1" />
-                        <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 40 (1).png" alt="Color 2" />
-                        <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 41 (1).png" alt="Color 3" />
-                        <img src="assets/images/foundation/colors/eye-shadow//dual-color/Rectangle 42 (1).png" alt="Color 4" />
-                        <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 43 (1).png" alt="Color 5" />
-                        <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 44 (3).png" alt="Color 6" />
-                        <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 45 (1).png" alt="Color 7" />
-                        <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 46 (1).png" alt="Color 8" />
+
+                    <!-- Double Color -->
+                    <div id="Paris" class="tabcontent">
+                        <div id="double-color" class="d-flex gap-3 mt-3 tab-images  flex-wrap">
+                            <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 38 (4).png" alt="Color 1" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 39 (1).png" alt="Color 1" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 40 (1).png" alt="Color 2" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 41 (1).png" alt="Color 3" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 42 (1).png" alt="Color 4" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 43 (1).png" alt="Color 5" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 44 (3).png" alt="Color 6" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 45 (1).png" alt="Color 7" />
+                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 46 (1).png" alt="Color 8" />
+                        </div>
                     </div>
+
                 </div>
             </div>
 

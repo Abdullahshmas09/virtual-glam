@@ -28,18 +28,18 @@
         <div class="container">
             <div class="row">
                 <!-- Box Section -->
-                <div class="col-md-4  align-items-center justify-content-center choose-try-on">
+                <div class="col-md-5 col-lg-4  align-items-center justify-content-center choose-try-on">
                     <div id="content1">
-                        <h2 class="text-center col1 mb-3 text-light">
-                            Choose Try-On Experience
-                        </h2>
-                        <div class="row gap-5 justify-content-center">
+                        <h2 class="text-center col1 mb-3 text-light">Choose Try-On Experience</h2>
+                        <div class="row gap-lg-3 gap-md-2 gap-3 justify-content-center">
+                            <!-- Live Makeup -->
                             <div class="col-md-6 try-on rounded">
                                 <div class="content d-flex flex-column align-items-center justify-content-between">
                                     <img src="assets/images/foundation/Camera enhance.png" alt="Live Makeup" />
                                     <h2 class="text-center pt-4">Live Makeup</h2>
                                 </div>
                             </div>
+                            <!-- Choose a Model -->
                             <div id="choose-modal" class="col-md-6 try-on rounded">
                                 <div class="content d-flex flex-column align-items-center justify-content-between">
                                     <img src="assets/images/foundation/ant-design_picture-filled.png" alt="Choose a Model" />
@@ -47,6 +47,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Use Photo -->
                         <div class="use-photo d-flex align-items-center justify-content-center">
                             <div class="centre try-on mt-3 mb-2 rounded">
                                 <div class="content d-flex flex-column align-items-center justify-content-between">
@@ -56,202 +57,191 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Content 2 (Initially hidden) -->
-                    <div id="content2" style="display: none">
-                        <div class="image-wrapper test">
-                            <img id="pic" src="assets/images/foundation/Untitled design (10) 2.png" />
-                            <input id="slider1" type="range" min="0" max="100" value="50" oninput="slide()" style="display: none" />
-                            <div class="text-overlay">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <i id="undo" class="fa fa-undo solid" aria-hidden="true" style="z-index: 999"></i>
-                                    <i id="cross" class="fa-solid fa-xmark solid" style="z-index: 999"></i>
+
+                    <div id="actions" class="virtual-glam-actions mt-2" style="display: none;">
+                        <div class="d-flex align-items-center justify-content-between z-1">
+                            <i id="undo" class="fa fa-undo solid" aria-hidden="true"></i>
+                            <i id="cross" class="fa-solid fa-xmark solid"></i>
+                        </div>
+                    </div>
+
+                    <!-- Choose a Model Images (Initially Hidden) -->
+                    <div id="image-content" class="virtual-glam-box-images mt-3" style="display: none;">
+                        <h2 class="text-center text-light mt-2">Choose a Model</h2>
+                        <div class="virtual-box-images d-flex flex-wrap gap-3">
+                            <img src="./assets/images/foundation/download (1).jpg" alt="Model 1" class="img-fluid">
+                            <img src="./assets/images/foundation/download (2).jpg" alt="Model 2" class="img-fluid">
+                            <img src="./assets/images/foundation/download (3).jpg" alt="Model 3" class="img-fluid">
+                            <img src="./assets/images/foundation/download (4).jpg" alt="Model 4" class="img-fluid">
+                            <img src="./assets/images/foundation/download.jpg" alt="Model 5" class="img-fluid">
+                            <img src="./assets/images/foundation/dosri-larki.png" alt="Model 6" class="img-fluid">
+                        </div>
+                    </div>
+                    <div id="content2" style="display: none;">
+                        <!-- Image Wrapper (This is where the clicked image will be inserted) -->
+                        <div class="image-wrapper">
+                        </div>
+                        <!-- Other content like sliders, icons, etc. remains unchanged -->
+                        <input id="slider1" type="range" min="0" max="100" value="50" oninput="slide()" style="display: none" />
+                        <div class="text-overlay">
+                            <div class="download-add-minus d-flex flex-column align-items-end justify-content-end">
+                                <div class="slider-container" style="z-index: 999">
+                                    <input type="range" id="first-slider" class="slider" step="1" min="1" max="100" value="19" />
                                 </div>
-                                <div class="download-add-minus d-flex flex-column align-items-end justify-content-end">
-                                    <div class="slider-container" style="z-index: 999">
-                                        <input type="range" id="first-slider" class="slider" step="1" min="1" max="100" value="19" />
-                                    </div>
-                                    <img id="solid1" class="solid1 mb-3" style="z-index: 999" width="25px" height="25px" src="assets/images/foundation/before-after_5661649.png" alt="" />
-                                    <i id="door" class="fa-solid fa-door-closed" style="display: none"></i>
-                                    <i id="download-btn" class="fa fa-download mb-3 solid" aria-hidden="true" style="z-index: 999"></i>
-                                    <i id="plus-btn" class="fa fa-plus mb-3 solid" aria-hidden="true" style="z-index: 999"></i>
-                                    <i id="minus-btn" class="fa fa-minus solid" aria-hidden="true" style="z-index: 999"></i>
-                                </div>
+                                <img id="solid1" class="solid1 mb-3" style="z-index: 999" width="25px" height="25px" src="assets/images/foundation/before-after_5661649.png" alt="" />
+                                <span><i id="door" class="fa-solid fa-door-closed"
+                                        style="display: none; z-index: 999;"></i></span>
+                                <span><i id="download-btn" class="fa fa-download mb-3 solid" aria-hidden="true"
+                                        style="z-index: 999"></i></span>
+                                <span><i id="plus-btn" class="fa fa-plus mb-3 solid" aria-hidden="true"
+                                        style="z-index: 999"></i></span>
+                                <span><i id="minus-btn" class="fa fa-minus solid" aria-hidden="true"
+                                        style="z-index: 999"></i></span>
                             </div>
                         </div>
-                        <!-- slider section -->
-                        <div id="slider-contaner" class="container" style="display: none">
+                        <!-- <div id="slider-contaner" class="container" style="display: none">
                             <div class="image-box">
-                                <!-- First Image (left side) -->
                                 <img id="image1" src="assets/images/foundation/dosri-larki.png" class="slider-img" />
-                                <!-- Second Image (right side) -->
                                 <img id="image2" src="assets/images/foundation/Untitled design (10) 2.png" class="slider-img" />
                             </div>
-                            <!-- Slider -->
                             <input type="range" min="0" max="100" value="50" id="slider" oninput="slide()" />
-                        </div>
+                        </div> -->
+
                     </div>
                 </div>
                 <!-- Color Picker Section -->
-                <div class="color-picker ps-md-5 col-md-8">
-                    <h3 class="virtual">
-                        Virtual <span class="foundation">Foundation</span> Try On
-                    </h3>
-                    <h3 class="mt-3">Colors:</h3>
+                <div class="col-md-7  col-lg-8">
+                    <div class="ps-3">
+                        <h3 class="virtual">
+                            Virtual <span class="foundation">Foundation</span> Try On
+                        </h3>
+                        <h3 class="mt-3">Colors:</h3>
 
-                    <!-- Tab Buttons -->
-                    <div class="tab buttons-section d-flex gap-3 flex-wrap">
-                        <button id="single" class="tablinks" onclick="openCity(event, 'London')">Single Color</button>
-                        <button id="dual" class="tablinks" onclick="openCity(event, 'Paris')">Dual Color</button>
-                        <button id="tripple" class="tablinks" onclick="openCity(event, 'Tokyo')">Tri Color</button>
-                        <button id="quad" class="tablinks" onclick="openCity(event, 'Chili')">Quad Color</button>
-                    </div>
-
-                    <!-- Tab Content -->
-                    <div id="London" class="tabcontent">
-                        <div id="single-color" class="d-flex gap-3 mt-3 tab-images flex-wrap">
-                            <img src="assets/images/foundation/colors/eye-shadow/colour button.png" alt="Color Picker" class="color-img" onclick="openColorPicker()">
-                            <input type="color" class="input-field color-input" id="color-picker">
-                            <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/Rectangle 137.png" alt="Color 2" />
-                            <img src="assets/images/foundation/colors/Rectangle 38.png" alt="Color 3" />
-                            <img src="assets/images/foundation/colors/Rectangle 39.png" alt="Color 4" />
-                            <img src="assets/images/foundation/colors/Rectangle 40.png" alt="Color 5" />
-                            <img src="assets/images/foundation/colors/Rectangle 41.png" alt="Color 6" />
-                            <img src="assets/images/foundation/colors/Rectangle 42.png" alt="Color 7" />
-                            <img src="assets/images/foundation/colors/Rectangle 43.png" alt="Color 8" />
-                            <img src="assets/images/foundation/colors/Rectangle 44 (2).png" alt="Color 9" />
-                            <img src="assets/images/foundation/colors/Rectangle 45.png" alt="Color 10" />
+                        <!-- Tab Buttons -->
+                        <div class="tab buttons-section d-flex gap-3 flex-wrap">
+                            <button id="single" class="tablinks" onclick="openCity(event, 'London')">Single
+                                Color</button>
+                            <button id="dual" class="tablinks" onclick="openCity(event, 'Paris')">Dual Color</button>
+                            <button id="tripple" class="tablinks" onclick="openCity(event, 'Tokyo')">Tri Color</button>
+                            <button id="quad" class="tablinks" onclick="openCity(event, 'Chili')">Quad Color</button>
                         </div>
-                        <div class="shadow-patterns contour-image-pattern">
-                            <!-- Single Pattern -->
-                            <h3 class="mt-3">Pattern:</h3>
-                            <div id="single-pattern" class="d-flex gap-3 tab-images flex-wrap">
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 1.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 2.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 3.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 4.png" alt="Color 1" />
+
+                        <!-- Tab Content -->
+                        <div id="London" class="tabcontent">
+                            <div id="single-color" class="d-flex gap-3 mt-3 tab-images flex-wrap">
+                                <img src="assets/images/foundation/colors/eye-shadow/colour button.png" alt="Color Picker" class="color-img" onclick="openColorPicker()">
+                                <input type="color" class="input-field color-input" id="color-picker">
+                                <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/Rectangle 137.png" alt="Color 2" />
+                                <img src="assets/images/foundation/colors/Rectangle 38.png" alt="Color 3" />
+                                <img src="assets/images/foundation/colors/Rectangle 39.png" alt="Color 4" />
+                                <img src="assets/images/foundation/colors/Rectangle 40.png" alt="Color 5" />
+                                <img src="assets/images/foundation/colors/Rectangle 41.png" alt="Color 6" />
+                                <img src="assets/images/foundation/colors/Rectangle 42.png" alt="Color 7" />
+                                <img src="assets/images/foundation/colors/Rectangle 43.png" alt="Color 8" />
+                                <img src="assets/images/foundation/colors/Rectangle 44 (2).png" alt="Color 9" />
+                                <img src="assets/images/foundation/colors/Rectangle 45.png" alt="Color 10" />
+                            </div>
+                            <div class="shadow-patterns contour-image-pattern">
+                                <!-- Single Pattern -->
+                                <h3 class="mt-3">Pattern:</h3>
+                                <div id="single-pattern" class="d-flex gap-3 tab-images flex-wrap">
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 1.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 2.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 3.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 4.png" alt="Color 1" />
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Double Color -->
-                    <div id="Paris" class="tabcontent">
-                        <div id="double-color" class="d-flex gap-3 mt-3 tab-images  flex-wrap">
-                            <img src="assets/images/foundation/colors/eye-shadow/colour button.png" alt="Color Picker" class="color-img" onclick="openColorPicker()">
-                            <input type="color" class="input-field color-input" id="color-picker">
-                            <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 38 (4).png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 39 (1).png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 40 (1).png" alt="Color 2" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 41 (1).png" alt="Color 3" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 42 (1).png" alt="Color 4" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 43 (1).png" alt="Color 5" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 44 (3).png" alt="Color 6" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 45 (1).png" alt="Color 7" />
-                            <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 46 (1).png" alt="Color 8" />
-                        </div>
-                        <div class="shadow-patterns contour-image-pattern">
-                            <h3 class="mt-3">Pattern:</h3>
-                            <div id="dual-pattern" class="d-flex gap-3 tab-images flex-wrap">
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 5.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 6.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 7.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 8.png" alt="Color 1" />
+                        <!-- Double Color -->
+                        <div id="Paris" class="tabcontent ">
+                            <div id="double-color" class="d-flex gap-3 mt-3 tab-images  flex-wrap">
+                                <img src="assets/images/foundation/colors/eye-shadow/colour button.png" alt="Color Picker" class="color-img" onclick="openColorPicker()">
+                                <input type="color" class="input-field color-input" id="color-picker">
+                                <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 38 (4).png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 39 (1).png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 40 (1).png" alt="Color 2" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 41 (1).png" alt="Color 3" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 42 (1).png" alt="Color 4" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 43 (1).png" alt="Color 5" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 44 (3).png" alt="Color 6" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 45 (1).png" alt="Color 7" />
+                                <img src="assets/images/foundation/colors/eye-shadow/dual-color/Rectangle 46 (1).png" alt="Color 8" />
+                            </div>
+                            <div class="shadow-patterns contour-image-pattern">
+                                <h3 class="mt-3">Pattern:</h3>
+                                <div id="dual-pattern" class="d-flex gap-3 tab-images flex-wrap">
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 5.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 6.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 7.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 8.png" alt="Color 1" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Tri Color -->
-                    <div id="Tokyo" class="tabcontent">
-                        <div id="tri-color" class="d-flex gap-3 mt-3 tab-images  flex-wrap">
-                            <img src="assets/images/foundation/colors/eye-shadow/colour button.png" alt="Color Picker" class="color-img" onclick="openColorPicker()">
-                            <input type="color" class="input-field color-input" id="color-picker">
-                            <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 38 (4).png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 39 (1).png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 40 (1).png" alt="Color 2" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 41 (1).png" alt="Color 3" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 42 (1).png" alt="Color 4" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 43 (1).png" alt="Color 5" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 44 (3).png" alt="Color 6" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 45 (1).png" alt="Color 7" />
-                            <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 46 (1).png" alt="Color 8" />
-                        </div>
-                        <div class="shadow-patterns contour-image-pattern">
-                            <h3 class="mt-3">Pattern:</h3>
-                            <div id="tri-pattern" class="d-flex gap-3  tab-images flex-wrap">
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 5 (1).png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 6 (1).png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 7 (1).png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 8 (1).png" alt="Color 1" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Quad Color -->
-
-                    <div id="Chili" class="tabcontent">
-                        <div id="quad-color" class="d-flex gap-3 mt-3 tab-images  flex-wrap">
-                            <img src="assets/images/foundation/colors/eye-shadow/colour button.png" alt="Color Picker" class="color-img" onclick="openColorPicker()">
-                            <input type="color" class="input-field color-input" id="color-picker">
-                            <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1205.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1206.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1207.png" alt="Color 2" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1208.png" alt="Color 3" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1209.png" alt="Color 4" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1210.png" alt="Color 5" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1211.png" alt="Color 6" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1212.png" alt="Color 7" />
-                            <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1213.png" alt="Color 8" />
-                        </div>
-                        <div class="shadow-patterns contour-image-pattern">
-                            <h3 class="mt-3">Pattern:</h3>
-                            <div id="quad-pattern" class="d-flex gap-3 tab-images flex-wrap">
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 1.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 2.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 3.png" alt="Color 1" />
-                                <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 4.png" alt="Color 1" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Selected Colors -->
-                    <div id="selected-colors" class="mt-3"></div>
-                    <input type="hidden" id="selected-colors-input" name="selected-colors">
-
-                    <!-- Patterns for Shadow -->
-                    <div class="shadow-patterns contour-image-pattern">
-
-                        <!-- Single Pattern -->
-                        <!-- <h3 class="mt-3">Pattern:</h3>
-                        <div id="single-pattern" class="d-flex gap-3 flex-wrap">
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 1.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 2.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 3.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 4.png" alt="Color 1" />
-                        </div> -->
-                        <!-- Dual Pattern -->
-                        <!-- <div id="dual-pattern" class="d-flex gap-3 flex-wrap">
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 5.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 6.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 7.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 8.png" alt="Color 1" />
-                        </div> -->
                         <!-- Tri Color -->
-                        <!-- <div id="tri-pattern" class="d-flex gap-3 d-none flex-wrap">
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 5 (1).png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 6 (1).png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 7 (1).png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 8 (1).png" alt="Color 1" />
-                        </div> -->
+                        <div id="Tokyo" class="tabcontent">
+                            <div id="tri-color" class="d-flex gap-3 mt-3 tab-images  flex-wrap">
+                                <img src="assets/images/foundation/colors/eye-shadow/colour button.png" alt="Color Picker" class="color-img" onclick="openColorPicker()">
+                                <input type="color" class="input-field color-input" id="color-picker">
+                                <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 38 (4).png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 39 (1).png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 40 (1).png" alt="Color 2" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 41 (1).png" alt="Color 3" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 42 (1).png" alt="Color 4" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 43 (1).png" alt="Color 5" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 44 (3).png" alt="Color 6" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 45 (1).png" alt="Color 7" />
+                                <img src="assets/images/foundation/colors/eye-shadow/tri-color/Rectangle 46 (1).png" alt="Color 8" />
+                            </div>
+                            <div class="shadow-patterns contour-image-pattern">
+                                <h3 class="mt-3">Pattern:</h3>
+                                <div id="tri-pattern" class="d-flex gap-3  tab-images flex-wrap">
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 5 (1).png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 6 (1).png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 7 (1).png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE 8 (1).png" alt="Color 1" />
+                                </div>
+                            </div>
+                        </div>
                         <!-- Quad Color -->
-                        <!-- <div id="quad-pattern" class="d-flex gap-3 d-none flex-wrap">
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 1.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 2.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 3.png" alt="Color 1" />
-                            <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 4.png" alt="Color 1" />
-                        </div> -->
+
+                        <div id="Chili" class="tabcontent">
+                            <div id="quad-color" class="d-flex gap-3 mt-3 tab-images  flex-wrap">
+                                <img src="assets/images/foundation/colors/eye-shadow/colour button.png" alt="Color Picker" class="color-img" onclick="openColorPicker()">
+                                <input type="color" class="input-field color-input" id="color-picker">
+                                <img id="none" src="assets/images/foundation/colors/Group 618.png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1205.png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1206.png" alt="Color 1" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1207.png" alt="Color 2" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1208.png" alt="Color 3" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1209.png" alt="Color 4" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1210.png" alt="Color 5" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1211.png" alt="Color 6" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1212.png" alt="Color 7" />
+                                <img src="assets/images/foundation/colors/eye-shadow/quad-color/Group 1213.png" alt="Color 8" />
+                            </div>
+                            <div class="shadow-patterns contour-image-pattern">
+                                <h3 class="mt-3">Pattern:</h3>
+                                <div id="quad-pattern" class="d-flex gap-3 tab-images flex-wrap">
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 1.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 2.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 3.png" alt="Color 1" />
+                                    <img src="assets/images/foundation/colors/eye-shadow/EYESHADOW EYE shade 4.png" alt="Color 1" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Selected Colors -->
+                        <div id="selected-colors" class="mt-3"></div>
+                        <input type="hidden" id="selected-colors-input" name="selected-colors">
+
+                        <!-- Patterns for Shadow -->
+                        <div class="shadow-patterns contour-image-pattern">
+                        </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="container lip-foundation-blush ">
