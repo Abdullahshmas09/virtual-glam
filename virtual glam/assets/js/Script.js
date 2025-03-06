@@ -47,24 +47,24 @@ $(document).ready(function() {
         ],
     });
 
-    // Initialize Slick Slider for .bannerSlider1
-    $('.bannerSlider1').slick({
-        dots: false,
-        arrows: true,
-        infinite: false,
-        speed: 1000,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1000,
-        responsive: [{
+    $(document).ready(function() {
+        // Initialize Slick Slider for .bannerSlider1
+        $('.bannerSlider1').slick({
+            dots: false,
+            arrows: true,
+            infinite: false,
+            speed: 1000,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 1000,
+            responsive: [{
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                 },
-            },
-            {
+            }, {
                 breakpoint: 400,
                 settings: {
                     arrows: true,
@@ -72,30 +72,11 @@ $(document).ready(function() {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                 },
-            },
-        ],
-    });
+            }, ],
+        });
 
-    // Function to apply styles when clicking on section items
-    function applyStyles(activeId, sectionToShow) {
-        // Remove the border from all elements
-        $("#lips-color, #eye-colors, #lips-liner, #contours, #eye-shadows, #eye-liners, #bronzers, #blushes, #foundations, #eye-lashes, #concealers")
-            .css("border", "none");
-
-        // Hide all sections
-        $("#lip-color, #lip-liner, #eye-color, #contour, #eye-shadow, #eye-liner, #eye-lash, #bronzer, #concealer, #blush, #foundation")
-            .hide();
-
-        // Show the selected section and remove the d-none class
-        $(sectionToShow).show().removeClass("d-none");
-
-        // Apply the active border to the clicked section
-        $(activeId).css({ "border": "5px solid purple", "border-radius": "10rem" });
-    }
-
-    // Click event for section items
-    $("#lips-liner, #lips-color, #eye-colors, #contours, #eye-shadows, #eye-liners, #eye-lashes, #bronzers, #concealers, #blushes, #foundations").click(function() {
-        let idMap = {
+        // Map image IDs to corresponding sections
+        const idMap = {
             "lips-liner": "#lip-liner",
             "eye-colors": "#eye-color",
             "lips-color": "#lip-color",
@@ -106,52 +87,58 @@ $(document).ready(function() {
             "bronzers": "#bronzer",
             "concealers": "#concealer",
             "blushes": "#blush",
-            "foundations": "#foundation"
+            "foundations": "#foundation",
         };
 
-        applyStyles("#" + this.id, idMap[this.id]);
-    });
+        // Function to apply styles and show/hide sections
+        function applyStyles(imgId) {
+            $(".bannerSlider1 .slick-slide img").css({
+                "border": "none",
+                "border-radius": ""
+            });
+            $("#lip-color, #lip-liner, #eye-color, #contour, #eye-shadow, #eye-liner, #eye-lash, #bronzer, #concealer, #blush, #foundation").hide();
 
-    // Handle slide changes in .bannerSlider1
-    $('.bannerSlider1').on('afterChange', function(event, slick, currentSlide) {
-        let totalSlides = slick.slideCount; // Get total number of slides
-        let activeSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + currentSlide + '"] img');
-
-        // Apply styles to the active slide
-        activeSlide.css({ 'border': '4px solid purple', 'border-radius': '10px' });
-
-        let sectionId = activeSlide.attr('id');
-        if (!sectionId) return; // Exit if no section ID
-
-        let idMap = {
-            "lips-liner": "#lip-liner",
-            "eye-colors": "#eye-color",
-            "lips-color": "#lip-color",
-            "contours": "#contour",
-            "eye-shadows": "#eye-shadow",
-            "eye-liners": "#eye-liner",
-            "eye-lashes": "#eye-lash",
-            "bronzers": "#bronzer",
-            "concealers": "#concealer",
-            "blushes": "#blush",
-            "foundations": "#foundation"
-        };
-
-        applyStyles("#" + sectionId, idMap[sectionId]);
-        setTimeout(() => {
-            if (sectionId === "eye-liners") {
-                for (let i = currentSlide + 1; i < totalSlides; i++) {
-                    ((index) => {
-                        setTimeout(() => {
-                            let prevSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + (index - 1) + '"] img');
-                            let nextSlide = $('.bannerSlider1 .slick-slide[data-slick-index="' + index + '"] img');
-                            prevSlide.css({ 'border': '', 'border-radius': '' });
-                            nextSlide.css({ 'border': '4px solid purple', 'border-radius': '10rem' });
-                        }, (index - currentSlide) * 2000);
-                    })(i);
-                }
+            if (idMap[imgId]) {
+                $(idMap[imgId]).show().removeClass("d-none");
+                $("#" + imgId).css({
+                    "border": "5px solid purple",
+                    "border-radius": "10rem"
+                });
             }
-        }, 2000);
-    });
+        }
 
+        // Handle click events on .bannerSlider1 images
+        $(document).on("click", ".bannerSlider1 img", function() {
+            applyStyles(this.id);
+        });
+
+        // Automatic animation logic
+        let slides = $('.bannerSlider1 .slick-slide img');
+        let currentIndex = 0;
+        let reverse = false;
+        let delay = 2000;
+
+        function animate() {
+            applyStyles(slides[currentIndex].id); // Apply styles using image ID
+
+            setTimeout(function() {
+                if (reverse) {
+                    currentIndex--;
+                    if (currentIndex < 0) {
+                        reverse = false;
+                        currentIndex = 1;
+                    }
+                } else {
+                    currentIndex++;
+                    if (currentIndex >= slides.length) {
+                        reverse = true;
+                        currentIndex = slides.length - 2;
+                    }
+                }
+                animate();
+            }, delay);
+        }
+
+        animate();
+    });
 });
