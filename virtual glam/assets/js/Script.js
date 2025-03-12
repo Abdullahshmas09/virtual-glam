@@ -1,22 +1,16 @@
 $(document).ready(function() {
-    // Fetch and insert header dynamically
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => $('#header').html(data))
-        .catch(error => console.error('Error loading header:', error));
-
-    // Fetch and insert footer dynamically
-    fetch('Footer.html')
-        .then(response => response.text())
-        .then(data => {
-            const footer = $('#footer');
-            if (footer.length) {
-                footer.html(data);
-            } else {
-                console.error('Footer element not found');
-            }
-        })
-        .catch(error => console.error('Error loading footer:', error));
+    function loadContent(url, elementId) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.innerHTML = data;
+                }
+            })
+    }
+    loadContent('header.html', 'header');
+    loadContent('Footer.html', 'footer');
 
     // Initialize Slick Slider for .bannerSlider
     $('.bannerSlider').slick({
@@ -29,23 +23,40 @@ $(document).ready(function() {
         autoplay: true,
         autoplaySpeed: 1000,
         responsive: [{
-                breakpoint: 600,
+                breakpoint: 1024, // Large tablets & small laptops
                 settings: {
-                    arrows: false,
-                    slidesToShow: 2,
+                    slidesToShow: 4,
                     slidesToScroll: 1,
+                    arrows: true,
                 },
             },
             {
-                breakpoint: 400,
+                breakpoint: 768,
                 settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
                     arrows: false,
+                },
+            },
+            {
+                breakpoint: 600, // Large mobile screens
+                settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
+                    arrows: false,
+                },
+            },
+            {
+                breakpoint: 400, // Small mobile screens
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
                 },
             },
         ],
     });
+
 
     $(document).ready(function() {
         // Initialize Slick Slider for .bannerSlider1
@@ -59,21 +70,31 @@ $(document).ready(function() {
             autoplay: true,
             autoplaySpeed: 1000,
             responsive: [{
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
+                    breakpoint: 768, // Tablets & medium screens
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        arrows: false, // Hide arrows on tablets
+                    },
                 },
-            }, {
-                breakpoint: 400,
-                settings: {
-                    arrows: true,
-                    autoplaySpeed: 1000,
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
+                {
+                    breakpoint: 600, // Large mobile screens
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
                 },
-            }, ],
+                {
+                    breakpoint: 400, // Small mobile screens
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrows: false, // Hide arrows for a cleaner UI
+                    },
+                },
+            ],
         });
+
 
         // Map image IDs to corresponding sections
         const idMap = {

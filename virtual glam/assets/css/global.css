@@ -19,6 +19,7 @@
     --auth-form-heading: 28px;
     /* Font sizes for Ramolina Script */
     --ramolina-medium: 40px;
+    --remolina-mediums: 70px;
     --ramolina-large: 96px;
     --ramolina-xlarge: 128px;
     /* width */
@@ -81,6 +82,12 @@ li {
 
 h4 {
     font-size: var(--concealer-image);
+}
+
+@media (max-width:768px) {
+    .merge-top {
+        margin-top: 100px !important;
+    }
 }
 
 
@@ -190,6 +197,12 @@ button {
     button {
         font-size: var(--small);
         padding: 8px 16px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .vglam {
+        font-size: var(--remolina-mediums) !important;
     }
 }
 
@@ -451,6 +464,13 @@ button {
     }
 }
 
+@media (min-width: 769px) and (max-width: 991px) {
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 
 /* footer css */
 
@@ -477,6 +497,20 @@ button {
 
 /*  media queries for small screen  */
 
+@media (min-width: 577px) and (max-width: 765px) {
+    .virtual-footer-navigation,
+    .virtual-blog-navigation {
+        text-align: center !important;
+    }
+    .virtual-contact-navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+}
+
 @media (max-width:768px) {
     .content-try-glam {
         display: flex;
@@ -491,6 +525,9 @@ button {
     }
     .try-virtual-heading {
         font-size: 36px !important
+    }
+    .virtual-contact-navigation p {
+        text-align: center;
     }
 }
 
