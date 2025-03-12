@@ -1,16 +1,22 @@
 $(document).ready(function() {
-    function loadContent(url, elementId) {
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.innerHTML = data;
-                }
-            })
-    }
-    loadContent('header.html', 'header');
-    loadContent('Footer.html', 'footer');
+    // Fetch and insert header dynamically
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => $('#header').html(data))
+        .catch(error => console.error('Error loading header:', error));
+
+    // Fetch and insert footer dynamically
+    fetch('Footer.html')
+        .then(response => response.text())
+        .then(data => {
+            const footer = $('#footer');
+            if (footer.length) {
+                footer.html(data);
+            } else {
+                console.error('Footer element not found');
+            }
+        })
+        .catch(error => console.error('Error loading footer:', error));
 
     // Initialize Slick Slider for .bannerSlider
     $('.bannerSlider').slick({
@@ -23,143 +29,118 @@ $(document).ready(function() {
         autoplay: true,
         autoplaySpeed: 1000,
         responsive: [{
-                breakpoint: 1024, // Large tablets & small laptops
+                breakpoint: 600,
                 settings: {
-                    slidesToShow: 4,
+                    arrows: false,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
-                    arrows: true,
                 },
             },
             {
-                breakpoint: 768,
+                breakpoint: 400,
                 settings: {
+                    arrows: false,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    });
+    let slider = $('.bannerSlider1').slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        speed: 1000,
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        responsive: [{
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    arrows: true,
+                    autoplaySpeed: 1000,
                     slidesToShow: 3,
                     slidesToScroll: 1,
-                    arrows: false,
-                },
-            },
-            {
-                breakpoint: 600, // Large mobile screens
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    arrows: false,
-                },
-            },
-            {
-                breakpoint: 400, // Small mobile screens
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    arrows: false,
                 },
             },
         ],
     });
 
+    const idMap = {
+        "lips-liner": "#lip-liner",
+        "eye-colors": "#eye-color",
+        "lips-color": "#lip-color",
+        "contours": "#contour",
+        "eye-shadows": "#eye-shadow",
+        "eye-liners": "#eye-liner",
+        "eye-lashes": "#eye-lash",
+        "bronzers": "#bronzer",
+        "concealers": "#concealer",
+        "blushes": "#blush",
+        "foundations": "#foundation",
+    };
 
-    $(document).ready(function() {
-        // Initialize Slick Slider for .bannerSlider1
-        $('.bannerSlider1').slick({
-            dots: false,
-            arrows: true,
-            infinite: false,
-            speed: 1000,
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 1000,
-            responsive: [{
-                    breakpoint: 768, // Tablets & medium screens
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        arrows: false, // Hide arrows on tablets
-                    },
-                },
-                {
-                    breakpoint: 600, // Large mobile screens
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    },
-                },
-                {
-                    breakpoint: 400, // Small mobile screens
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        arrows: false, // Hide arrows for a cleaner UI
-                    },
-                },
-            ],
+    function applyStyles(imgId) {
+        $(".bannerSlider1 .slick-slide img").css({
+            "border": "none",
+            "border-radius": ""
         });
+        $("#lip-color, #lip-liner, #eye-color, #contour, #eye-shadow, #eye-liner, #eye-lash, #bronzer, #concealer, #blush, #foundation").hide();
 
-
-        // Map image IDs to corresponding sections
-        const idMap = {
-            "lips-liner": "#lip-liner",
-            "eye-colors": "#eye-color",
-            "lips-color": "#lip-color",
-            "contours": "#contour",
-            "eye-shadows": "#eye-shadow",
-            "eye-liners": "#eye-liner",
-            "eye-lashes": "#eye-lash",
-            "bronzers": "#bronzer",
-            "concealers": "#concealer",
-            "blushes": "#blush",
-            "foundations": "#foundation",
-        };
-
-        // Function to apply styles and show/hide sections
-        function applyStyles(imgId) {
-            $(".bannerSlider1 .slick-slide img").css({
-                "border": "none",
-                "border-radius": ""
+        if (idMap[imgId]) {
+            $(idMap[imgId]).show().removeClass("d-none");
+            $("#" + imgId).css({
+                "border": "5px solid purple",
+                "border-radius": "10rem"
             });
-            $("#lip-color, #lip-liner, #eye-color, #contour, #eye-shadow, #eye-liner, #eye-lash, #bronzer, #concealer, #blush, #foundation").hide();
+        }
+    }
 
-            if (idMap[imgId]) {
-                $(idMap[imgId]).show().removeClass("d-none");
-                $("#" + imgId).css({
-                    "border": "5px solid purple",
-                    "border-radius": "10rem"
-                });
+    let slides = $('.bannerSlider1 .slick-slide img');
+    let currentIndex = 0;
+    let delay = 2000;
+    let animationActive = true;
+
+    function animate() {
+        if (!animationActive) return;
+
+        applyStyles(slides[currentIndex].id);
+
+        setTimeout(function() {
+            if (!animationActive) return;
+
+            currentIndex++;
+
+            if (currentIndex >= slides.length) {
+                currentIndex = 0;
+                $(".bannerSlider1").slick("slickGoTo", 0);
+            } else {
+                $(".bannerSlider1").slick("slickGoTo", currentIndex);
             }
-        }
 
-        // Handle click events on .bannerSlider1 images
-        $(document).on("click", ".bannerSlider1 img", function() {
-            applyStyles(this.id);
-        });
+            animate();
+        }, delay);
+    }
 
-        // Automatic animation logic
-        let slides = $('.bannerSlider1 .slick-slide img');
-        let currentIndex = 0;
-        let reverse = false;
-        let delay = 2000;
+    function stopAnimation() {
+        animationActive = false;
+        $(".bannerSlider1").slick("slickPause");
+    }
 
-        function animate() {
-            applyStyles(slides[currentIndex].id); // Apply styles using image ID
-
-            setTimeout(function() {
-                if (reverse) {
-                    currentIndex--;
-                    if (currentIndex < 0) {
-                        reverse = false;
-                        currentIndex = 1;
-                    }
-                } else {
-                    currentIndex++;
-                    if (currentIndex >= slides.length) {
-                        reverse = true;
-                        currentIndex = slides.length - 2;
-                    }
-                }
-                animate();
-            }, delay);
-        }
-
-        animate();
+    $(document).on("click", ".bannerSlider1 img", function() {
+        applyStyles(this.id);
+        stopAnimation();
     });
+
+    animate();
+
+
 });
